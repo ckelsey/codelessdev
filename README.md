@@ -37,3 +37,5 @@ Example: `codelessdev --server --compile --watch`
 - Replaces `const file = require('file.html|css|scss')` with `const file = '{minified html|css|scss}'`.
 
 - Ensures `import` resolves to a valid file on output. i.e. `import mod from 'dir/file'` is properly output to `import mod from 'dir/file.js'`.
+
+- Generates a schema file for components based on the AST/jsDoc of the file
