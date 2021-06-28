@@ -8,6 +8,7 @@ Compiler and testing for development with codeless components
 
 In the root directory add the file `codelessdev.json`
 
+
 ## Configuration Options
 `port`: The port the static dev site will run on. `default: 8888`
 
@@ -19,12 +20,14 @@ In the root directory add the file `codelessdev.json`
 
 `defaultEntry`: The glob pattern or file path to run the initial compile on. `default: 'src/**/*.ts'`
 
+
 ## Run options
 `--server`: Starts a server at `https://localhost:[port specified in config options]`.
 
 `--watch`: Enables file watching in the directory specified in the config property `sourceDirectory`.
 
 `--compile`: Compiles typescript files
+
 
 ## Compiling
 - Compiles typescript files using `ESNext` module and `ES2020` target.
