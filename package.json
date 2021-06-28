@@ -1,6 +1,6 @@
 {
   "name": "codelessdev",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Compiler and testing for development with codeless components",
   "main": "index.js",
   "bin": {
