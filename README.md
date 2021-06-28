@@ -22,6 +22,8 @@ In the root directory add the file `codelessdev.json`
 
 
 ## Run options
+Example: `codelessdev --server --compile --watch`
+
 `--server`: Starts a server at `https://localhost:[port specified in config options]`.
 
 `--watch`: Enables file watching in the directory specified in the config property `sourceDirectory`.
