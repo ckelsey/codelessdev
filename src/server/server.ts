@@ -1,9 +1,11 @@
-const http2 = require('http2')
-const { readFileSync } = require('fs')
-const { basename, join, dirname, extname } = require('path')
+import http2 from 'http2'
+import { readFileSync } from 'fs'
+import { basename, join, dirname, extname, resolve } from 'path'
 
-module.exports = function (staticDir, port) {
-    const mimeTypes = {
+console.log(resolve(''))
+
+export default function Server(staticDir: string, port: string | number) {
+    const mimeTypes: { [key: string]: string } = {
         '.html': 'text/html',
         '.js': 'text/javascript',
         '.css': 'text/css',
@@ -23,8 +25,8 @@ module.exports = function (staticDir, port) {
 
     function getKeys() {
         return {
-            key: readFileSync(join(__dirname, 'assets', 'server.key')),
-            cert: readFileSync(join(__dirname, 'assets', 'server.crt'))
+            key: readFileSync(join(resolve(''), 'src', 'server', 'server.key')),
+            cert: readFileSync(join(resolve(''), 'src', 'server', 'server.crt'))
         }
     }
 

@@ -1,26 +1,57 @@
-const { resolve, dirname, basename, extname, join } = require("path")
-const { isExpressionStatement, getCombinedModifierFlags, ModifierFlags, SyntaxKind, forEachChild, isExportDeclaration, sys, isImportDeclaration, isTypeAliasDeclaration, isClassDeclaration } = require("typescript")
+import { resolve, dirname, basename, extname, join } from "path"
+import { isExpressionStatement, getCombinedModifierFlags, ModifierFlags, SyntaxKind, forEachChild, isExportDeclaration, sys, isImportDeclaration, isTypeAliasDeclaration, isClassDeclaration, TransformationContext, SourceFile, Program, CompilerOptions, TypeChecker, ParameterDeclaration } from "typescript"
+
+interface ParameterSchema {
+    name: string
+    type: string
+    optional: boolean
+}
+
+interface PropertySchema {
+    name?: string
+    type?: string
+    optional?: boolean
+    readonly?: boolean
+}
+
+interface MethodSchema {
+    name: string
+    parameters: ParameterSchema[]
+}
+
+interface ClassSchema {
+    name: string
+    methods: { [key: string]: MethodSchema }
+    properties: { [key: string]: PropertySchema }
+}
+
+interface ImportSchema {
+    from: string
+    name?: string
+    names?: string[]
+}
+
 const root = resolve('')
 
-function isNodeExported(node) {
+function isNodeExported(node: any) {
     return ((getCombinedModifierFlags(node) & ModifierFlags.Export) !== 0 || (!!node.parent && node.parent.kind === SyntaxKind.SourceFile))
 }
 
-function getDocs(el) {
+function getDocs(el: any): any {
     if (!el) { return {} }
 
     if (!el.jsDoc && el.original) { return getDocs(el.original) }
 
     if (!el.jsDoc) { return {} }
 
-    const docs = el.jsDoc.reduce((results, doc) => {
+    const docs = el.jsDoc.reduce((results: any, doc: any) => {
         if (doc.comment) { results.description = doc.comment }
 
         if (doc.tags) {
             return Object.assign(
                 {},
                 results,
-                doc.tags.reduce((tagsResults, tag) => {
+                doc.tags.reduce((tagsResults: any, tag: any) => {
                     const name = tag.tagName.escapedText
 
                     if (name === 'param') {
@@ -41,14 +72,14 @@ function getDocs(el) {
     return docs
 }
 
-function getNodeTypeFromSymbol(typeChecker, node) {
+function getNodeTypeFromSymbol(typeChecker: TypeChecker, node: any) {
     const _symbol = node.symbol || node.original.symbol
     const symbol = typeChecker.getTypeOfSymbolAtLocation(_symbol, _symbol.valueDeclaration)
     const string = typeChecker.typeToString(symbol)
     return string
 }
 
-function kindToText(kind) {
+function kindToText(kind: number) {
     if (kind === SyntaxKind.NullKeyword) { return 'null' }
     if (kind === SyntaxKind.BooleanKeyword) { return 'boolean' }
     if (kind === SyntaxKind.TrueKeyword) { return 'true' }
@@ -63,9 +94,9 @@ function kindToText(kind) {
     if (kind === SyntaxKind.BigIntKeyword) { return 'bigint' }
 }
 
-function typeToString(typeChecker, type) {
+function typeToString(typeChecker: TypeChecker, type: any): string {
     if (type.members) {
-        const members = type.members.map((member) => `{[${member.parameters[0].name.escapedText}: ${typeToString(typeChecker, member.parameters[0].type)}]: ${typeToString(typeChecker, member.type)}}`)
+        const members = type.members.map((member: any) => `{[${member.parameters[0].name.escapedText}: ${typeToString(typeChecker, member.parameters[0].type)}]: ${typeToString(typeChecker, member.type)}}`)
         if (members.length === 1) { return members[0] }
         return members
     }
@@ -81,7 +112,7 @@ function typeToString(typeChecker, type) {
 
     if (type.typeName) { return type.typeName.escapedText }
 
-    if (type.types) { return type.types.map((val) => typeToString(typeChecker, val)).join(' | ') }
+    if (type.types) { return type.types.map((val: any) => typeToString(typeChecker, val)).join(' | ') }
 
     const kind = kindToText(type.kind)
 
@@ -94,12 +125,12 @@ function typeToString(typeChecker, type) {
     return 'unknown'
 }
 
-function typeString(typeChecker, node) {
+function typeString(typeChecker: TypeChecker, node: any) {
     return node.type ? typeToString(typeChecker, node) : getNodeTypeFromSymbol(typeChecker, node)
 }
 
-function classSchema(typeChecker, node) {
-    const result = {
+function classSchema(typeChecker: TypeChecker, node: any) {
+    const result: ClassSchema = {
         methods: {},
         properties: {},
         name: node.name.escapedText
@@ -111,13 +142,13 @@ function classSchema(typeChecker, node) {
     // if (node.heritageClauses) {}
 
     if (node.members) {
-        node.members.forEach((member) => {
+        node.members.forEach((member: any) => {
             if (member.kind === SyntaxKind.Constructor) { return }
 
             if (member.kind === SyntaxKind.MethodDeclaration) {
                 return result.methods[member.name.escapedText] = Object.assign(getDocs(member), {
                     name: member.name.escapedText,
-                    parameters: member.parameters.map((param) => parametersSchema(typeChecker, param)),
+                    parameters: member.parameters.map((param: ParameterDeclaration) => parametersSchema(typeChecker, param)),
                     returns: typeString(typeChecker, member)
                 })
             }
@@ -158,7 +189,7 @@ function classSchema(typeChecker, node) {
     return result
 }
 
-function parametersSchema(typeChecker, param) {
+function parametersSchema(typeChecker: TypeChecker, param: any) {
     return Object.assign({}, getDocs(param), {
         name: param.name.escapedText,
         type: typeString(typeChecker, param),
@@ -166,85 +197,89 @@ function parametersSchema(typeChecker, param) {
     })
 }
 
-function propertySchema(typeChecker, property) {
+function propertySchema(typeChecker: TypeChecker, property: any) {
     return {
         name: property.name.escapedText,
         type: typeString(typeChecker, property)
     }
 }
 
-function typeAliasSchems(typeChecker, node) {
+function typeAliasSchems(typeChecker: TypeChecker, node: any) {
     return {
         name: node.name.escapedText,
-        properties: node.type && node.type.members ? node.type.members.map(member => propertySchema(typeChecker, member)) : []
+        properties: node.type && node.type.members ? node.type.members.map((member: any) => propertySchema(typeChecker, member)) : []
     }
 }
 
-function importSchema(node) {
-    const result = {
+function importSchema(node: any) {
+    const result: ImportSchema = {
         from: node.moduleSpecifier.text
     }
 
     if (node.importClause) {
         if (node.importClause.name) { result.name = node.importClause.name.getText() }
 
-        if (node.importClause.namedBindings) { result.names = node.importClause.namedBindings.elements.map((binding) => binding.name.escapedText) }
+        if (node.importClause.namedBindings) { result.names = node.importClause.namedBindings.elements.map((binding: any) => binding.name.escapedText) }
     }
 
     return result
 }
 
-function srcToDist(config, src) {
-    return (!src.includes(root) ? join(root, src) : src).split(config.rootDir).join(config.outDir)
+function srcToDist(config: CompilerOptions, src: string) {
+    return (!src.includes(root) ? join(root, src) : src).split(config.rootDir as string).join(config.outDir)
 }
 
-function schemaFilename(src) {
+function schemaFilename(src: string) {
     return `${basename(src, extname(src))}.json`
 }
 
-module.exports = function transformJson(program, config) {
-    return _context => file => {
-        const typeChecker = program.getTypeChecker()
-        const sourcePath = dirname(file.fileName)
-        const outPath = srcToDist(config, `${join(sourcePath, schemaFilename(file.fileName))}`)
-        const imports = []
-        const definitions = {}
-        const errors = []
+export default function JSONTransformer(program: Program, config: CompilerOptions) {
+    return function (_context: TransformationContext) {
+        return function (sourceFile: SourceFile) {
+            const typeChecker = program.getTypeChecker()
+            const sourcePath = dirname(sourceFile.fileName)
+            const outPath = srcToDist(config, `${join(sourcePath, schemaFilename(sourceFile.fileName))}`)
+            const imports: ImportSchema[] = []
+            const definitions = {}
+            const errors: any[] = []
 
-        forEachChild(file, node => {
-            const name = node.name ? node.name.getText() : undefined
+            forEachChild(sourceFile, node => {
+                const n = node as any
+                const name = n.name ? n.name.getText() : undefined
 
-            if (!isNodeExported(node) || SyntaxKind.EndOfFileToken === node.kind || isExportDeclaration(node)) { return }
+                if (!isNodeExported(node) || SyntaxKind.EndOfFileToken === node.kind || isExportDeclaration(node)) { return }
 
-            if (isImportDeclaration(node)) {
-                imports.push(importSchema(node))
-            } else if (isTypeAliasDeclaration(node)) {
-                const type = typeAliasSchems(typeChecker, node)
-                Object.assign(definitions, { [type.name]: type })
-            } else if (isClassDeclaration(node)) {
-                const result = classSchema(typeChecker, node)
-                Object.assign(definitions, { [result.name]: result })
-            }
-            // LOG AS ERRORS FOR NOW
-            else if (name) {
-                errors.push(name)
-            } else if (isExpressionStatement(node)) {
-                const args = node.arguments ? node.arguments : node.expression && node.expression.arguments ? node.expression.arguments : [{ text: '' }]
-                errors.push(args.text)
-            } else if (SyntaxKind.FirstStatement === node.kind) {
-                errors.push(node.declarationList.declarations[0].name.escapedText)
-            } else if (SyntaxKind.ExportAssignment === node.kind) {
-                errors.push(node.symbol.escapedName)
-            } else {
-                errors.push(node.kind)
-            }
+                if (isImportDeclaration(node)) {
+                    imports.push(importSchema(node))
+                } else if (isTypeAliasDeclaration(node)) {
+                    const type = typeAliasSchems(typeChecker, node)
+                    Object.assign(definitions, { [type.name]: type })
+                } else if (isClassDeclaration(node)) {
+                    const result = classSchema(typeChecker, node)
+                    Object.assign(definitions, { [result.name]: result })
+                }
+                // LOG AS ERRORS FOR NOW
+                else if (name) {
+                    errors.push(name)
+                } else if (isExpressionStatement(node)) {
+                    const args = n.arguments ? n.arguments : node.expression && n.expression.arguments ? n.expression.arguments : [{ text: '' }]
+                    errors.push(args.text)
+                } else if (SyntaxKind.FirstStatement === node.kind) {
+                    errors.push(n.declarationList.declarations[0].name.escapedText)
+                } else if (SyntaxKind.ExportAssignment === node.kind) {
+                    errors.push(n.symbol.escapedName)
+                } else {
+                    errors.push(node.kind)
+                }
 
-        })
+            })
 
-        const resultString = JSON.stringify({ imports, definitions, errors })
+            const resultString = JSON.stringify({ imports, definitions, errors })
 
-        sys.writeFile(outPath, resultString)
+            sys.writeFile(outPath, resultString)
 
-        return file
+            return sourceFile
+        }
+
     }
 }

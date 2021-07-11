@@ -1,6 +1,6 @@
 {
     "include": [
-        "./../dummy.ts"
+        "./src/index.ts"
     ],
     "compilerOptions": {
         "strict": true,
@@ -11,13 +11,13 @@
         "isolatedModules": true,
         "allowSyntheticDefaultImports": true,
         "forceConsistentCasingInFileNames": true,
-        "allowJs": false,
+        "allowJs": true,
         "declaration": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "removeComments": true,
         "noImplicitAny": true,
-        "baseUrl": "./src",
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "outDir": "dist"
     }
 }

@@ -1,0 +1,99 @@
+import { resolve, extname, basename, join, dirname } from 'path';
+import { watch } from 'fs';
+import glob from 'glob';
+import notifier from 'node-notifier';
+import Config from './config';
+import Server from './server/server';
+import Compiler from './ts/compiler';
+import TsConfig from './ts/ts-config';
+import runner, { test } from './tester/index';
+const root = resolve('');
+const sourceDirectory = resolve(root, Config.sourceDirectory);
+const shouldServer = process.argv.indexOf('--server') > -1;
+const shouldWatch = process.argv.indexOf('--watch') > -1;
+const shouldCompile = process.argv.indexOf('--compile') > -1;
+const shouldTest = process.argv.indexOf('--test') > -1;
+const ignoredExtensions = ['.DS_Store'];
+const ignoredFiles = ['.DS_Store', ''];
+const queue = [];
+let running = [];
+let timer;
+function isTestFile(filename) {
+    return !Config.testsPattern ? false : glob.sync(Config.testsPattern).map(f => join(root, f)).indexOf(filename) > -1;
+}
+function timeString(start) {
+    const result = new Date().getTime() - start;
+    if (result > 1000) {
+        return `${result / 1000} seconds`;
+    }
+    return `${result} milliseconds`;
+}
+async function runTests(files) {
+    const globbed = glob.sync(Config.testsPattern)
+        .filter(testFilename => files
+        .slice()
+        .map(f => `${dirname(f)}/`)
+        .filter(directoryName => testFilename.indexOf(directoryName) > -1).length)
+        .map(f => join(root, f));
+    await runner(globbed);
+    if (!shouldWatch) {
+        process.exit(1);
+    }
+}
+function compile(filename = Config.defaultEntry) {
+    if (isTestFile(filename)) {
+        return;
+    }
+    if ((timer && queue.indexOf(filename) > -1) || ignoredExtensions.indexOf(extname(filename)) > -1 || ignoredFiles.indexOf(basename(filename)) > -1) {
+        return;
+    }
+    clearTimeout(timer);
+    queue.push(filename);
+    if (running.length) {
+        return;
+    }
+    const start = new Date().getTime();
+    timer = setTimeout(() => {
+        timer = null;
+        running = queue.slice();
+        console.log(`Starting compiler for ${running.join(',')}`);
+        const { files, options } = TsConfig(Config.sourceDirectory, Config.compileOutDirectory, Config.defaultEntry, Config.testsPattern, running);
+        Compiler(files, options)
+            .then((res) => {
+            let message = `Finished compiling ${running.join(',')} in ${timeString(start)}\n`;
+            if (res.messages.length) {
+                message = `Typescript error/warnings:\n${res.messages.join('\n')}`;
+            }
+            notifier.notify(message);
+            console.log(message);
+            running.forEach(ranFilename => {
+                const index = queue.indexOf(ranFilename);
+                if (index > -1) {
+                    queue.splice(index, 1);
+                }
+            });
+            if (!queue.length) {
+                if (!shouldWatch && !shouldTest) {
+                    return process.exit(1);
+                }
+                if (shouldTest) {
+                    runTests(res.files);
+                }
+            }
+            running = [];
+            queue.forEach(compile);
+        });
+    }, 150);
+}
+function main() {
+    if (shouldServer) {
+        Server(Config.siteDirectory, Config.port);
+    }
+    if (shouldCompile) {
+        compile();
+    }
+    if (shouldWatch) {
+        watch(sourceDirectory, { recursive: true }, (_kind, filename) => compile(resolve(sourceDirectory, filename)));
+    }
+}
+export { test, main };
