@@ -2,11 +2,12 @@ import { resolve, extname, basename, join, dirname } from 'path';
 import { watch } from 'fs';
 import glob from 'glob';
 import notifier from 'node-notifier';
-import Config from './config';
-import Server from './server/server';
-import Compiler from './ts/compiler';
-import TsConfig from './ts/ts-config';
-import runner, { test } from './tester/index';
+import Config from './config.js';
+import Server from './server/server.js';
+import Compiler from './ts/compiler.js';
+import TsConfig from './ts/ts-config.js';
+import runner, { test } from './tester/index.js';
+const notify = notifier.notify;
 const root = resolve('');
 const sourceDirectory = resolve(root, Config.sourceDirectory);
 const shouldServer = process.argv.indexOf('--server') > -1;
@@ -64,7 +65,7 @@ function compile(filename = Config.defaultEntry) {
             if (res.messages.length) {
                 message = `Typescript error/warnings:\n${res.messages.join('\n')}`;
             }
-            notifier.notify(message);
+            notify(message);
             console.log(message);
             running.forEach(ranFilename => {
                 const index = queue.indexOf(ranFilename);

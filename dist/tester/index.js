@@ -1,5 +1,5 @@
-import Chrome from './chrome';
-import Config from '../config';
+import Chrome from './chrome.js';
+import Config from '../config.js';
 const initialUrl = `https://localhost:${Config.port}`;
 const tests = {};
 const testIds = [];

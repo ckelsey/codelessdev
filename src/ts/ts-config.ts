@@ -1,7 +1,9 @@
 import { resolve, join, extname, basename } from 'path'
 import glob from 'glob'
-import { CompilerOptions, ModuleKind, ScriptTarget, ModuleResolutionKind } from 'typescript'
+import * as ts from 'typescript'
+import { CompilerOptions } from 'typescript'
 
+const { ModuleKind, ScriptTarget, ModuleResolutionKind } = ts
 const root = resolve('')
 
 export default function TsConfig(source: string, output: string, defaultEntry: string, testsGlob: string, pathToFiles: string[] = []) {

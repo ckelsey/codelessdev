@@ -1,6 +1,6 @@
-import { StringPosition } from './get-string-position';
 import Protocol from 'devtools-protocol';
-import { ChromeRequests } from '../chrome';
+import { StringPosition } from './get-string-position.js';
+import { ChromeRequests } from '../chrome.js';
 interface MappedRanges extends StringPosition {
     startOffset: number;
     endOffset: number;

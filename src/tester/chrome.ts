@@ -1,9 +1,9 @@
-import ChromeLauncher from 'chrome-launcher'
-import CDP from 'chrome-remote-interface'
+import { LaunchedChrome, launch } from 'chrome-launcher'
+import * as CDP from 'chrome-remote-interface'
 import Protocol from 'devtools-protocol'
 import ProtocolProxyApi from 'devtools-protocol/types/protocol-proxy-api'
-import config from '../config'
-import mapCoverage, { MappedCoverage } from './profiler/map-coverage'
+import config from '../config.js'
+import mapCoverage, { MappedCoverage } from './profiler/map-coverage.js'
 
 function onLoaded(Page: ProtocolProxyApi.PageApi) {
     return new Promise((resolve => {
@@ -23,7 +23,7 @@ export type ChromeRequests = { [key: string]: ChromeRequest }
 
 export interface ChromeObject {
     initialUrl: string
-    instance: null | ChromeLauncher.LaunchedChrome
+    instance: null | LaunchedChrome
     client: null | CDP.Client
     profiler: null | ProtocolProxyApi.ProfilerApi
     performance: null | ProtocolProxyApi.PerformanceApi
@@ -58,7 +58,7 @@ const Chrome: ChromeObject = {
     async launch(url = `https://localhost:${config.port}`, _takeInitialProfile = false) {
         Chrome.initialUrl = url
 
-        const chrome = await ChromeLauncher.launch({ chromeFlags: ['--allow-insecure-localhost'] })
+        const chrome = await launch({ chromeFlags: ['--allow-insecure-localhost'] })
         const client = await CDP({ port: chrome.port })
 
         const {

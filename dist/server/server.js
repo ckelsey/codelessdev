@@ -1,4 +1,4 @@
-import http2 from 'http2';
+import { createSecureServer } from 'http2';
 import { readFileSync } from 'fs';
 import { basename, join, dirname, extname, resolve } from 'path';
 console.log(resolve(''));
@@ -26,7 +26,7 @@ export default function Server(staticDir, port) {
             cert: readFileSync(join(resolve(''), 'src', 'server', 'server.crt'))
         };
     }
-    const server = http2.createSecureServer(Object.assign({}, getKeys()));
+    const server = createSecureServer(Object.assign({}, getKeys()));
     server.on('error', (err) => console.error(err));
     server.on('stream', (stream, headers) => {
         const requestPath = headers[':path'] || '';

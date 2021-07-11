@@ -16,6 +16,7 @@
   "keywords": [
     "codeless"
   ],
+  "type": "module",
   "author": "Chris Kelsey",
   "license": "MIT",
   "bugs": {

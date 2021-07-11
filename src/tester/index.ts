@@ -4,8 +4,8 @@
  * - asserts
  */
 
-import Chrome from './chrome'
-import Config from '../config'
+import Chrome from './chrome.js'
+import Config from '../config.js'
 
 interface TestConfig {
     name: string

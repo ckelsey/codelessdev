@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs'
 import { join, resolve } from 'path'
-import { MappedCoverage } from './map-coverage'
+import { MappedCoverage } from './map-coverage.js'
 
 console.log(resolve(''))
 

@@ -1,6 +1,7 @@
 import { resolve, join, extname, basename } from 'path';
 import glob from 'glob';
-import { ModuleKind, ScriptTarget, ModuleResolutionKind } from 'typescript';
+import * as ts from 'typescript';
+const { ModuleKind, ScriptTarget, ModuleResolutionKind } = ts;
 const root = resolve('');
 export default function TsConfig(source, output, defaultEntry, testsGlob, pathToFiles = []) {
     const files = pathToFiles.filter(f => extname(f) === '.ts' && basename(f) !== '*.ts');

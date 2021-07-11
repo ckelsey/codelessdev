@@ -1,7 +1,7 @@
-import ChromeLauncher from 'chrome-launcher';
-import CDP from 'chrome-remote-interface';
-import config from '../config';
-import mapCoverage from './profiler/map-coverage';
+import { launch } from 'chrome-launcher';
+import * as CDP from 'chrome-remote-interface';
+import config from '../config.js';
+import mapCoverage from './profiler/map-coverage.js';
 function onLoaded(Page) {
     return new Promise((resolve => {
         Page.on('domContentEventFired', resolve);
@@ -22,7 +22,7 @@ const Chrome = {
     networkIntercepts: null,
     async launch(url = `https://localhost:${config.port}`, _takeInitialProfile = false) {
         Chrome.initialUrl = url;
-        const chrome = await ChromeLauncher.launch({ chromeFlags: ['--allow-insecure-localhost'] });
+        const chrome = await launch({ chromeFlags: ['--allow-insecure-localhost'] });
         const client = await CDP({ port: chrome.port });
         const { Page, Performance, Profiler, Fetch } = client;
         await Promise.all([

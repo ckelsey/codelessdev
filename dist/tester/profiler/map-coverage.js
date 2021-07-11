@@ -1,8 +1,8 @@
 import { writeFileSync, lstatSync, mkdirSync } from 'fs';
 import { join, resolve } from 'path';
-import getLines from './get-lines';
-import getStringPosition from './get-string-position';
-import coverageHTML from './coverage-html';
+import getLines from './get-lines.js';
+import getStringPosition from './get-string-position.js';
+import coverageHTML from './coverage-html.js';
 export default function mapCoverage(_coverage, requests, initialUrl) {
     const coverage = _coverage.result.reduce((result, current) => {
         const url = current.url.split(initialUrl).join('');

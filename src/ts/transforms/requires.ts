@@ -1,13 +1,16 @@
 import { readFileSync } from "fs"
-import path from "path"
-import { visitEachChild, isVariableStatement, NodeFlags, TransformationContext, SourceFile, VariableStatement, Node, VariableDeclaration, Expression, Program } from "typescript"
+import { dirname, join } from "path"
 import { minify } from 'html-minifier'
 import { renderSync } from 'node-sass'
+import * as ts from 'typescript'
+import { TransformationContext, SourceFile, VariableStatement, Node, VariableDeclaration, Expression, Program } from 'typescript'
+
+const { visitEachChild, isVariableStatement, NodeFlags } = ts
 
 export default function RequiresTransformer(_program: Program) {
     return function (context: TransformationContext) {
         return function (sourceFile: SourceFile) {
-            const sourcePath = path.dirname(sourceFile.fileName)
+            const sourcePath = dirname(sourceFile.fileName)
             return visitNodeAndChildren(sourceFile)
 
             function visitNodeAndChildren(node: Node): Node {
@@ -65,7 +68,7 @@ export default function RequiresTransformer(_program: Program) {
 
             function getCode(importPath: string, ext: string) {
                 if (ext === 'html') {
-                    return minify(readFileSync(path.join(sourcePath, importPath)).toString(), {
+                    return minify(readFileSync(join(sourcePath, importPath)).toString(), {
                         continueOnParseError: true,
                         minifyCSS: true,
                         minifyJS: true,
@@ -75,7 +78,7 @@ export default function RequiresTransformer(_program: Program) {
                 }
 
                 if (['scss', 'css'].indexOf(ext) > -1) {
-                    return renderSync({ file: path.join(sourcePath, importPath), outputStyle: 'compressed' }).css.toString().trim()
+                    return renderSync({ file: join(sourcePath, importPath), outputStyle: 'compressed' }).css.toString().trim()
                 }
 
                 return ''

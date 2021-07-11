@@ -1,5 +1,8 @@
 import { resolve, dirname, basename, extname, join } from "path"
-import { isExpressionStatement, getCombinedModifierFlags, ModifierFlags, SyntaxKind, forEachChild, isExportDeclaration, sys, isImportDeclaration, isTypeAliasDeclaration, isClassDeclaration, TransformationContext, SourceFile, Program, CompilerOptions, TypeChecker, ParameterDeclaration } from "typescript"
+import * as ts from 'typescript'
+import { TransformationContext, SourceFile, Program, CompilerOptions, TypeChecker, ParameterDeclaration } from 'typescript'
+
+const { isExpressionStatement, getCombinedModifierFlags, ModifierFlags, SyntaxKind, forEachChild, isExportDeclaration, sys, isImportDeclaration, isTypeAliasDeclaration, isClassDeclaration } = ts
 
 interface ParameterSchema {
     name: string

@@ -1,10 +1,11 @@
 import { lstatSync } from "fs";
-import path from "path";
-import { visitEachChild, isImportDeclaration } from "typescript";
+import { dirname, join } from "path";
+import * as ts from 'typescript';
+const { visitEachChild, isImportDeclaration } = ts;
 export default function ImportsTransformer(_program) {
     return function (context) {
         return function (sourceFile) {
-            const sourcePath = path.dirname(sourceFile.fileName);
+            const sourcePath = dirname(sourceFile.fileName);
             return visitNodeAndChildren(sourceFile);
             function visitNodeAndChildren(node) {
                 if (node == null) {
@@ -16,7 +17,7 @@ export default function ImportsTransformer(_program) {
             function visitNode(node) { return isImportDeclaration(node) ? visitImportNode(node) : node; }
             function isValidPath(importPath, addOn) {
                 try {
-                    lstatSync(path.join(sourcePath, `${importPath}${addOn}`));
+                    lstatSync(join(sourcePath, `${importPath}${addOn}`));
                     return true;
                 }
                 catch (error) {

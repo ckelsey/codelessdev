@@ -1,10 +1,10 @@
 import { writeFileSync, lstatSync, mkdirSync } from 'fs'
 import { join, resolve } from 'path'
-import getLines from './get-lines'
-import getStringPosition, { StringPosition } from './get-string-position'
-import coverageHTML from './coverage-html'
 import Protocol from 'devtools-protocol'
-import { ChromeRequests } from '../chrome'
+import getLines from './get-lines.js'
+import getStringPosition, { StringPosition } from './get-string-position.js'
+import { ChromeRequests } from '../chrome.js'
+import coverageHTML from './coverage-html.js'
 
 interface MappedRanges extends StringPosition {
     startOffset: number

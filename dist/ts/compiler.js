@@ -1,17 +1,18 @@
-import path from "path";
-import ts from "typescript";
-import ImportsTransformer from "./transforms/imports";
-import RequiresTransformer from "./transforms/requires";
-import JSONTransformer from "./transforms/json";
+import { resolve } from "path";
+import ImportsTransformer from "./transforms/imports.js";
+import RequiresTransformer from "./transforms/requires.js";
+import JSONTransformer from "./transforms/json.js";
+import * as ts from 'typescript';
+const { createProgram, flattenDiagnosticMessageText, forEachChild, getCombinedModifierFlags, getLineAndCharacterOfPosition, getPreEmitDiagnostics, ModifierFlags, SyntaxKind } = ts;
 function getFileName(node) { return node?.parent?.originalFileName; }
 function isNodeExported(node) {
-    return (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Export) !== 0 || (!!node.parent && node.parent.kind === ts.SyntaxKind.SourceFile);
+    return (getCombinedModifierFlags(node) & ModifierFlags.Export) !== 0 || (!!node.parent && node.parent.kind === SyntaxKind.SourceFile);
 }
-const root = path.resolve('');
+const root = resolve('');
 export default function Compiler(files, options) {
     return new Promise((resolve) => {
         const filesCompiled = [];
-        const program = ts.createProgram(files, options);
+        const program = createProgram(files, options);
         const transformers = {
             "after": [
                 JSONTransformer(program, options),
@@ -33,21 +34,21 @@ export default function Compiler(files, options) {
         };
         for (const sourceFile of program.getSourceFiles()) {
             if (!sourceFile.isDeclarationFile) {
-                ts.forEachChild(sourceFile, visit);
+                forEachChild(sourceFile, visit);
             }
         }
         const messages = [];
-        const diagnostics = ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics);
+        const diagnostics = getPreEmitDiagnostics(program).concat(emitResult.diagnostics);
         diagnostics.forEach((diagnostic) => {
             if (diagnostic.file) {
-                const { line, character } = ts.getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start || 0);
-                const message = `${diagnostic.file.fileName} (${line + 1},${character + 1}): ${ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n")}`;
+                const { line, character } = getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start || 0);
+                const message = `${diagnostic.file.fileName} (${line + 1},${character + 1}): ${flattenDiagnosticMessageText(diagnostic.messageText, "\n")}`;
                 if (messages.indexOf(message) === -1) {
                     messages.push(message);
                 }
             }
             else {
-                const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n");
+                const message = flattenDiagnosticMessageText(diagnostic.messageText, "\n");
                 if (messages.indexOf(message) === -1) {
                     messages.push(message);
                 }

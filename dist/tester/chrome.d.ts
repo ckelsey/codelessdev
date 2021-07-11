@@ -1,8 +1,8 @@
-import ChromeLauncher from 'chrome-launcher';
-import CDP from 'chrome-remote-interface';
+import { LaunchedChrome } from 'chrome-launcher';
+import * as CDP from 'chrome-remote-interface';
 import Protocol from 'devtools-protocol';
 import ProtocolProxyApi from 'devtools-protocol/types/protocol-proxy-api';
-import { MappedCoverage } from './profiler/map-coverage';
+import { MappedCoverage } from './profiler/map-coverage.js';
 export interface ChromeRequest {
     id: string;
     frameId: string;
@@ -15,7 +15,7 @@ export declare type ChromeRequests = {
 };
 export interface ChromeObject {
     initialUrl: string;
-    instance: null | ChromeLauncher.LaunchedChrome;
+    instance: null | LaunchedChrome;
     client: null | CDP.Client;
     profiler: null | ProtocolProxyApi.ProfilerApi;
     performance: null | ProtocolProxyApi.PerformanceApi;
