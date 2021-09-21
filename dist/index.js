@@ -78,7 +78,7 @@ function compile(filename = Config.defaultEntry) {
                     return process.exit(1);
                 }
                 if (shouldTest) {
-                    runTests(res.files);
+                    setTimeout(() => runTests(res.files), 10);
                 }
             }
             running = [];
@@ -88,13 +88,16 @@ function compile(filename = Config.defaultEntry) {
 }
 function main() {
     if (shouldServer) {
-        Server(Config.siteDirectory, Config.port);
+        Server(Config.siteDirectory, Config.port, Config.testUiPath, Config.serverKey, Config.serverCert);
     }
     if (shouldCompile) {
         compile();
     }
     if (shouldWatch) {
         watch(sourceDirectory, { recursive: true }, (_kind, filename) => compile(resolve(sourceDirectory, filename)));
+    }
+    if (!shouldCompile && shouldTest) {
+        runTests(glob.sync(Config.testsPattern));
     }
 }
 export { test, main };

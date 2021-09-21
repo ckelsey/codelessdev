@@ -1,10 +1,10 @@
 import { readFileSync } from 'fs'
-import { join, resolve } from 'path'
+import { join } from 'path'
 import { MappedCoverage } from './map-coverage.js'
 
-console.log(resolve(''))
-
-const coverageHTMLTemplate = readFileSync(join(resolve(''), 'assets', 'coverage.html')).toString('utf-8')
+const root = import.meta.url.split('file:').pop() || ''
+const coverageHtmlPath = join(root, '../../../..', 'assets', 'coverage.html')
+const coverageHTMLTemplate = readFileSync(coverageHtmlPath).toString('utf-8')
 
 export default function coverageHTML(coverage: MappedCoverage) {
     return coverageHTMLTemplate.split('{ coverage }').join(JSON.stringify(coverage))

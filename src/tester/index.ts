@@ -1,20 +1,24 @@
 /**
  * TODO
- * - modify html body
- * - asserts
+ * - option to not navigate, instead replace body, i.e. beforeach
+ * - global coverage as well as test coverage
+ * - option in test for headless
  */
 
-import Chrome from './chrome.js'
+
+import { join, resolve, dirname } from 'path'
+import { rmdirSync } from 'fs'
+import { format } from 'util'
+import { make } from '../dir.js'
+import Chrome, { ChromeObject } from './chrome.js'
 import Config from '../config.js'
+import { MappedCoverage } from './profiler/map-coverage.js'
 
 interface TestConfig {
     name: string
     id: string
     url?: string
-    scripts?: string[]
-    css?: string[],
-    head?: string,
-    body?: string
+    document?: string
 }
 
 interface Test {
@@ -22,17 +26,41 @@ interface Test {
     fn: Function
 }
 
-const initialUrl = `https://localhost:${Config.port}`
-const tests: { [key: string]: Test } = {}
-const testIds: string[] = []
-const testResults: any[] = []
-const testsIdsRun: any[] = []
-let runningTest: string
+interface TestCoverageItem {
+    name: string
+    error: any
+    pass: any
+    group: string
+    coverage: MappedCoverage
+}
 
 let idIndex = 0
 const doId = (indx: number) => doHash() + indx
 const doHash = () => (performance.now() + 'xxxxxxxxxxxxxxxx').replace(/[x]|\./g, () => (Math.random() * 16 | 0).toString(16))
 const Id = () => doId(idIndex++)
+
+const root = resolve('')
+const initialUrl = `https://localhost:${Config.port}`
+const tests: { [key: string]: Test } = {}
+let testIds: string[] = []
+const testResults: any[] = []
+const testResult: { [key: string]: TestCoverageItem[] } = {}
+let runningTest: string
+let currentGroup = ''
+
+function printProgress(_messages: any) {
+    // process.stdout.clearLine(1)
+    // process.stdout.cursorTo(0)
+    // @ts-ignore
+    // process.stdout.write(...messages)
+    process.stdout.write(format.apply(this, arguments) + '\n')
+}
+
+function getGroupFromFileName(filename: string) {
+    return dirname((filename.split(root).pop() as string).split(Config.sourceDirectory).pop() as string)
+}
+
+async function sleep(ms: number) { return new Promise(resolve => setTimeout(resolve, ms)) }
 
 export const test = function (name: string, fn: Function, options = {}) {
     const config: TestConfig = Object.assign({}, {
@@ -56,24 +84,69 @@ export const test = function (name: string, fn: Function, options = {}) {
     tests[config.id] = _test
 }
 
-async function runTest(chrome: typeof Chrome, test: Test) {
+async function runTest(test: Test, chrome: ChromeObject) {
+    printProgress(test.config.name)
+    await chrome.clear()
     const start = new Date().getTime()
     const url = test.config.url || initialUrl
+    // const chrome = await Chrome.launch()
 
-    if ((test.config.scripts && test.config.scripts.length) || (test.config.css && test.config.css.length) || test.config.body || test.config.head) {
-        console.log(test.config)
+    if (test.config.document) {
+        chrome.networkIntercepts = {
+            '/': () => Promise.resolve({
+                body: test.config.document,
+                responseCode: 200,
+                responseHeaders: [{
+                    name: 'content-type',
+                    value: 'text/html; charset=utf-8'
+                }]
+            })
+        }
+    } else {
+        chrome.networkIntercepts = null
     }
 
-    await chrome.navigate(url, true)
-    testResults.push(await Promise.resolve(test.fn.call(null, [chrome])))
-    console.log(test.config.name, test.config.id, 'finished in', new Date().getTime() - start)
+    await chrome.navigate(url)
+    await chrome.startProfile()
+
+    await Promise
+        .resolve(test.fn.call(null, chrome))
+        .then(res => testResults.push({ pass: res || true, group: currentGroup }))
+        .catch(error => testResults.push({ group: currentGroup, error: Object.assign({}, error, { stack: error.stack.toString() }) }))
+
+    const results = {
+        name: test.config.name,
+        pass: testResults[testResults.length - 1].pass,
+        error: testResults[testResults.length - 1].error,
+        coverage: await chrome.getProfile(),
+        group: currentGroup
+    }
+
+    if (!testResult[currentGroup]) {
+        testResult[currentGroup] = []
+    }
+
+    testResult[currentGroup].push(results)
+
+    // make(join(Config.testResultsDirectory, `${test.config.id}.json`), JSON.stringify(results))
+    make(join(Config.testResultsDirectory, `results.json`), JSON.stringify(testResult))
+
+    // await chrome.destroy()
+    await sleep(1)
+
+    // @ts-ignore
+    printProgress(results.pass ? '\x1b[36m%s\x1b[0m' : '\x1b[31m%s\x1b[0m', `${results.pass ? 'passed' : 'errored'} in ${new Date().getTime() - start}ms`)
 }
 
 export default async function runner(files: string[] = []) {
-    // const start = new Date().getTime()
-    const chrome = await Chrome.launch(initialUrl, false)
+    const start = new Date().getTime()
+    try { rmdirSync(Config.testResultsDirectory, { recursive: true }) } catch (error) { }
+
+    const chrome = await Chrome.launch()
 
     for (const file of files) {
+        currentGroup = getGroupFromFileName(file)
+
         try {
             await require(file)
         } catch (error) {
@@ -81,20 +154,20 @@ export default async function runner(files: string[] = []) {
         }
 
         for (const id of testIds) {
-            if (testsIdsRun.indexOf(id) > -1) { continue }
-
             runningTest = id
             const test = tests[id]
 
             if (!test) { continue }
 
-            await runTest(chrome, test)
+            await runTest(test, chrome)
         }
+
+        testIds = []
     }
 
-    console.log(testResults)
+    await chrome.destroy()
 
-    chrome.kill()
+    printProgress(`Tests completed in ${new Date().getTime() - start}ms`)
 }
 
 

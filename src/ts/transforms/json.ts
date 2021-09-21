@@ -1,8 +1,5 @@
 import { resolve, dirname, basename, extname, join } from "path"
-import * as ts from 'typescript'
-import { TransformationContext, SourceFile, Program, CompilerOptions, TypeChecker, ParameterDeclaration } from 'typescript'
-
-const { isExpressionStatement, getCombinedModifierFlags, ModifierFlags, SyntaxKind, forEachChild, isExportDeclaration, sys, isImportDeclaration, isTypeAliasDeclaration, isClassDeclaration } = ts
+import ts from 'typescript'
 
 interface ParameterSchema {
     name: string
@@ -37,7 +34,7 @@ interface ImportSchema {
 const root = resolve('')
 
 function isNodeExported(node: any) {
-    return ((getCombinedModifierFlags(node) & ModifierFlags.Export) !== 0 || (!!node.parent && node.parent.kind === SyntaxKind.SourceFile))
+    return ((ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Export) !== 0 || (!!node.parent && node.parent.kind === ts.SyntaxKind.SourceFile))
 }
 
 function getDocs(el: any): any {
@@ -75,7 +72,7 @@ function getDocs(el: any): any {
     return docs
 }
 
-function getNodeTypeFromSymbol(typeChecker: TypeChecker, node: any) {
+function getNodeTypeFromSymbol(typeChecker: ts.TypeChecker, node: any) {
     const _symbol = node.symbol || node.original.symbol
     const symbol = typeChecker.getTypeOfSymbolAtLocation(_symbol, _symbol.valueDeclaration)
     const string = typeChecker.typeToString(symbol)
@@ -83,21 +80,21 @@ function getNodeTypeFromSymbol(typeChecker: TypeChecker, node: any) {
 }
 
 function kindToText(kind: number) {
-    if (kind === SyntaxKind.NullKeyword) { return 'null' }
-    if (kind === SyntaxKind.BooleanKeyword) { return 'boolean' }
-    if (kind === SyntaxKind.TrueKeyword) { return 'true' }
-    if (kind === SyntaxKind.FalseKeyword) { return 'false' }
-    if (kind === SyntaxKind.StringKeyword) { return 'string' }
-    if (kind === SyntaxKind.VoidKeyword) { return 'void' }
-    if (kind === SyntaxKind.UndefinedKeyword) { return 'undefined' }
-    if (kind === SyntaxKind.FunctionKeyword) { return 'function' }
-    if (kind === SyntaxKind.SymbolKeyword) { return 'symbol' }
-    if (kind === SyntaxKind.ObjectKeyword) { return 'object' }
-    if (kind === SyntaxKind.NumberKeyword) { return 'number' }
-    if (kind === SyntaxKind.BigIntKeyword) { return 'bigint' }
+    if (kind === ts.SyntaxKind.NullKeyword) { return 'null' }
+    if (kind === ts.SyntaxKind.BooleanKeyword) { return 'boolean' }
+    if (kind === ts.SyntaxKind.TrueKeyword) { return 'true' }
+    if (kind === ts.SyntaxKind.FalseKeyword) { return 'false' }
+    if (kind === ts.SyntaxKind.StringKeyword) { return 'string' }
+    if (kind === ts.SyntaxKind.VoidKeyword) { return 'void' }
+    if (kind === ts.SyntaxKind.UndefinedKeyword) { return 'undefined' }
+    if (kind === ts.SyntaxKind.FunctionKeyword) { return 'function' }
+    if (kind === ts.SyntaxKind.SymbolKeyword) { return 'symbol' }
+    if (kind === ts.SyntaxKind.ObjectKeyword) { return 'object' }
+    if (kind === ts.SyntaxKind.NumberKeyword) { return 'number' }
+    if (kind === ts.SyntaxKind.BigIntKeyword) { return 'bigint' }
 }
 
-function typeToString(typeChecker: TypeChecker, type: any): string {
+function typeToString(typeChecker: ts.TypeChecker, type: any): string {
     if (type.members) {
         const members = type.members.map((member: any) => `{[${member.parameters[0].name.escapedText}: ${typeToString(typeChecker, member.parameters[0].type)}]: ${typeToString(typeChecker, member.type)}}`)
         if (members.length === 1) { return members[0] }
@@ -123,16 +120,16 @@ function typeToString(typeChecker: TypeChecker, type: any): string {
 
     if (type.objectType) { return `${type.objectType.typeName.escapedText}[${type.indexType.literal.text}]` }
 
-    if (type.elementType && type.kind === SyntaxKind.ArrayType) { return `${typeToString(typeChecker, type.elementType)}[]` }
+    if (type.elementType && type.kind === ts.SyntaxKind.ArrayType) { return `${typeToString(typeChecker, type.elementType)}[]` }
 
     return 'unknown'
 }
 
-function typeString(typeChecker: TypeChecker, node: any) {
+function typeString(typeChecker: ts.TypeChecker, node: any) {
     return node.type ? typeToString(typeChecker, node) : getNodeTypeFromSymbol(typeChecker, node)
 }
 
-function classSchema(typeChecker: TypeChecker, node: any) {
+function classSchema(typeChecker: ts.TypeChecker, node: any) {
     const result: ClassSchema = {
         methods: {},
         properties: {},
@@ -146,17 +143,17 @@ function classSchema(typeChecker: TypeChecker, node: any) {
 
     if (node.members) {
         node.members.forEach((member: any) => {
-            if (member.kind === SyntaxKind.Constructor) { return }
+            if (member.kind === ts.SyntaxKind.Constructor) { return }
 
-            if (member.kind === SyntaxKind.MethodDeclaration) {
+            if (member.kind === ts.SyntaxKind.MethodDeclaration) {
                 return result.methods[member.name.escapedText] = Object.assign(getDocs(member), {
                     name: member.name.escapedText,
-                    parameters: member.parameters.map((param: ParameterDeclaration) => parametersSchema(typeChecker, param)),
+                    parameters: member.parameters.map((param: ts.ParameterDeclaration) => parametersSchema(typeChecker, param)),
                     returns: typeString(typeChecker, member)
                 })
             }
 
-            if (member.kind === SyntaxKind.PropertyDeclaration) {
+            if (member.kind === ts.SyntaxKind.PropertyDeclaration) {
                 const propertyName = member.name.escapedText
                 if (!result.properties[propertyName]) { result.properties[propertyName] = {} }
                 result.properties[propertyName].name = propertyName
@@ -166,7 +163,7 @@ function classSchema(typeChecker: TypeChecker, node: any) {
                 return
             }
 
-            if (member.kind === SyntaxKind.SetAccessor) {
+            if (member.kind === ts.SyntaxKind.SetAccessor) {
                 const propertyName = member.name.escapedText
                 if (!result.properties[propertyName]) { result.properties[propertyName] = {} }
                 result.properties[propertyName].name = propertyName
@@ -178,7 +175,7 @@ function classSchema(typeChecker: TypeChecker, node: any) {
                 return
             }
 
-            if (member.kind === SyntaxKind.GetAccessor) {
+            if (member.kind === ts.SyntaxKind.GetAccessor) {
                 const propertyName = member.name.escapedText
                 if (!result.properties[propertyName]) { result.properties[propertyName] = { readonly: true } }
                 result.properties[propertyName].name = propertyName
@@ -192,7 +189,7 @@ function classSchema(typeChecker: TypeChecker, node: any) {
     return result
 }
 
-function parametersSchema(typeChecker: TypeChecker, param: any) {
+function parametersSchema(typeChecker: ts.TypeChecker, param: any) {
     return Object.assign({}, getDocs(param), {
         name: param.name.escapedText,
         type: typeString(typeChecker, param),
@@ -200,14 +197,14 @@ function parametersSchema(typeChecker: TypeChecker, param: any) {
     })
 }
 
-function propertySchema(typeChecker: TypeChecker, property: any) {
+function propertySchema(typeChecker: ts.TypeChecker, property: any) {
     return {
         name: property.name.escapedText,
         type: typeString(typeChecker, property)
     }
 }
 
-function typeAliasSchems(typeChecker: TypeChecker, node: any) {
+function typeAliasSchems(typeChecker: ts.TypeChecker, node: any) {
     return {
         name: node.name.escapedText,
         properties: node.type && node.type.members ? node.type.members.map((member: any) => propertySchema(typeChecker, member)) : []
@@ -228,7 +225,7 @@ function importSchema(node: any) {
     return result
 }
 
-function srcToDist(config: CompilerOptions, src: string) {
+function srcToDist(config: ts.CompilerOptions, src: string) {
     return (!src.includes(root) ? join(root, src) : src).split(config.rootDir as string).join(config.outDir)
 }
 
@@ -236,9 +233,9 @@ function schemaFilename(src: string) {
     return `${basename(src, extname(src))}.json`
 }
 
-export default function JSONTransformer(program: Program, config: CompilerOptions) {
-    return function (_context: TransformationContext) {
-        return function (sourceFile: SourceFile) {
+export default function JSONTransformer(program: ts.Program, config: ts.CompilerOptions) {
+    return function (_context: ts.TransformationContext) {
+        return function (sourceFile: ts.SourceFile) {
             const typeChecker = program.getTypeChecker()
             const sourcePath = dirname(sourceFile.fileName)
             const outPath = srcToDist(config, `${join(sourcePath, schemaFilename(sourceFile.fileName))}`)
@@ -246,30 +243,30 @@ export default function JSONTransformer(program: Program, config: CompilerOption
             const definitions = {}
             const errors: any[] = []
 
-            forEachChild(sourceFile, node => {
+            ts.forEachChild(sourceFile, node => {
                 const n = node as any
                 const name = n.name ? n.name.getText() : undefined
 
-                if (!isNodeExported(node) || SyntaxKind.EndOfFileToken === node.kind || isExportDeclaration(node)) { return }
+                if (!isNodeExported(node) || ts.SyntaxKind.EndOfFileToken === node.kind || ts.isExportDeclaration(node)) { return }
 
-                if (isImportDeclaration(node)) {
+                if (ts.isImportDeclaration(node)) {
                     imports.push(importSchema(node))
-                } else if (isTypeAliasDeclaration(node)) {
+                } else if (ts.isTypeAliasDeclaration(node)) {
                     const type = typeAliasSchems(typeChecker, node)
                     Object.assign(definitions, { [type.name]: type })
-                } else if (isClassDeclaration(node)) {
+                } else if (ts.isClassDeclaration(node)) {
                     const result = classSchema(typeChecker, node)
                     Object.assign(definitions, { [result.name]: result })
                 }
                 // LOG AS ERRORS FOR NOW
                 else if (name) {
                     errors.push(name)
-                } else if (isExpressionStatement(node)) {
+                } else if (ts.isExpressionStatement(node)) {
                     const args = n.arguments ? n.arguments : node.expression && n.expression.arguments ? n.expression.arguments : [{ text: '' }]
                     errors.push(args.text)
-                } else if (SyntaxKind.FirstStatement === node.kind) {
+                } else if (ts.SyntaxKind.FirstStatement === node.kind) {
                     errors.push(n.declarationList.declarations[0].name.escapedText)
-                } else if (SyntaxKind.ExportAssignment === node.kind) {
+                } else if (ts.SyntaxKind.ExportAssignment === node.kind) {
                     errors.push(n.symbol.escapedName)
                 } else {
                     errors.push(node.kind)
@@ -279,7 +276,7 @@ export default function JSONTransformer(program: Program, config: CompilerOption
 
             const resultString = JSON.stringify({ imports, definitions, errors })
 
-            sys.writeFile(outPath, resultString)
+            ts.sys.writeFile(outPath, resultString)
 
             return sourceFile
         }

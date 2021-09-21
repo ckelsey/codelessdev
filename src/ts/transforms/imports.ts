@@ -1,30 +1,27 @@
 import { lstatSync } from "fs"
 import { dirname, join } from "path"
-import * as ts from 'typescript'
-import { Node, ImportDeclaration, TransformationContext, SourceFile, Program } from 'typescript'
+import ts from 'typescript'
 
-const { visitEachChild, isImportDeclaration } = ts
-
-export default function ImportsTransformer(_program: Program) {
-    return function (context: TransformationContext) {
-        return function (sourceFile: SourceFile) {
+export default function ImportsTransformer(_program: ts.Program) {
+    return function (context: ts.TransformationContext) {
+        return function (sourceFile: ts.SourceFile) {
             const sourcePath = dirname(sourceFile.fileName)
 
             return visitNodeAndChildren(sourceFile)
 
-            function visitNodeAndChildren(node: Node): Node {
+            function visitNodeAndChildren(node: ts.Node): ts.Node {
                 if (node == null) { return node }
 
                 node = visitNode(node)
 
-                return visitEachChild(
+                return ts.visitEachChild(
                     node,
                     childNode => visitNodeAndChildren(childNode),
                     context
                 )
             }
 
-            function visitNode(node: Node): Node { return isImportDeclaration(node) ? visitImportNode(node) : node }
+            function visitNode(node: ts.Node): ts.Node { return ts.isImportDeclaration(node) ? visitImportNode(node) : node }
 
             function isValidPath(importPath: string, addOn: string) {
                 try {
@@ -35,7 +32,7 @@ export default function ImportsTransformer(_program: Program) {
                 }
             }
 
-            function formatExtension(node: ImportDeclaration, importPath: string): ImportDeclaration {
+            function formatExtension(node: ts.ImportDeclaration, importPath: string): ts.ImportDeclaration {
                 let newPath = ''
 
                 if (isValidPath(importPath, '.ts')) {
@@ -53,10 +50,10 @@ export default function ImportsTransformer(_program: Program) {
                 )
             }
 
-            function visitImportNode(node: Node) {
+            function visitImportNode(node: ts.Node) {
                 if (!(node as any).moduleSpecifier) { return node }
 
-                const n = node as ImportDeclaration
+                const n = node as ts.ImportDeclaration
                 const importPath = (node as any).moduleSpecifier.getText().replace(/"|'/gm, '')
                 const fileName = importPath.split('/').pop() || ''
                 const ext = fileName.includes('.') ? fileName.split('.').pop() || '' : ''

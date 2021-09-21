@@ -14,6 +14,8 @@ interface MappedNode {
 }
 interface MappedCoverageElement {
     source: string;
+    characterCount: number;
+    percentage: number;
     lines: string[];
     nodes: MappedNode[];
 }

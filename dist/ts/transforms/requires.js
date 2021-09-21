@@ -2,8 +2,7 @@ import { readFileSync } from "fs";
 import { dirname, join } from "path";
 import { minify } from 'html-minifier';
 import { renderSync } from 'node-sass';
-import * as ts from 'typescript';
-const { visitEachChild, isVariableStatement, NodeFlags } = ts;
+import ts from 'typescript';
 export default function RequiresTransformer(_program) {
     return function (context) {
         return function (sourceFile) {
@@ -14,7 +13,7 @@ export default function RequiresTransformer(_program) {
                     return node;
                 }
                 node = visitNode(node);
-                return visitEachChild(node, childNode => visitNodeAndChildren(childNode), context);
+                return ts.visitEachChild(node, childNode => visitNodeAndChildren(childNode), context);
             }
             function declarationReducer(result, declaration) {
                 if (result !== true) {
@@ -29,12 +28,17 @@ export default function RequiresTransformer(_program) {
                     if (typeof expression.getText !== 'function') {
                         return false;
                     }
-                    return expression.getText() === 'require';
+                    try {
+                        return expression.getText() === 'require';
+                    }
+                    catch (error) {
+                        return false;
+                    }
                 }
                 return result;
             }
             function isRequiredNode(node) {
-                if (!isVariableStatement(node)) {
+                if (!ts.isVariableStatement(node)) {
                     return false;
                 }
                 const n = node;
@@ -85,7 +89,7 @@ export default function RequiresTransformer(_program) {
                 }
                 return context.factory.createVariableStatement(undefined, context.factory.createVariableDeclarationList([
                     context.factory.createVariableDeclaration(context.factory.createIdentifier(name), undefined, undefined, context.factory.createStringLiteral(code)),
-                ], NodeFlags.Const));
+                ], ts.NodeFlags.Const));
             }
             function visitRequiredNode(node) {
                 const initializer = getInitializer(node);

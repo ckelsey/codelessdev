@@ -1,9 +1,8 @@
 import { resolve, dirname, basename, extname, join } from "path";
-import * as ts from 'typescript';
-const { isExpressionStatement, getCombinedModifierFlags, ModifierFlags, SyntaxKind, forEachChild, isExportDeclaration, sys, isImportDeclaration, isTypeAliasDeclaration, isClassDeclaration } = ts;
+import ts from 'typescript';
 const root = resolve('');
 function isNodeExported(node) {
-    return ((getCombinedModifierFlags(node) & ModifierFlags.Export) !== 0 || (!!node.parent && node.parent.kind === SyntaxKind.SourceFile));
+    return ((ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Export) !== 0 || (!!node.parent && node.parent.kind === ts.SyntaxKind.SourceFile));
 }
 function getDocs(el) {
     if (!el) {
@@ -45,40 +44,40 @@ function getNodeTypeFromSymbol(typeChecker, node) {
     return string;
 }
 function kindToText(kind) {
-    if (kind === SyntaxKind.NullKeyword) {
+    if (kind === ts.SyntaxKind.NullKeyword) {
         return 'null';
     }
-    if (kind === SyntaxKind.BooleanKeyword) {
+    if (kind === ts.SyntaxKind.BooleanKeyword) {
         return 'boolean';
     }
-    if (kind === SyntaxKind.TrueKeyword) {
+    if (kind === ts.SyntaxKind.TrueKeyword) {
         return 'true';
     }
-    if (kind === SyntaxKind.FalseKeyword) {
+    if (kind === ts.SyntaxKind.FalseKeyword) {
         return 'false';
     }
-    if (kind === SyntaxKind.StringKeyword) {
+    if (kind === ts.SyntaxKind.StringKeyword) {
         return 'string';
     }
-    if (kind === SyntaxKind.VoidKeyword) {
+    if (kind === ts.SyntaxKind.VoidKeyword) {
         return 'void';
     }
-    if (kind === SyntaxKind.UndefinedKeyword) {
+    if (kind === ts.SyntaxKind.UndefinedKeyword) {
         return 'undefined';
     }
-    if (kind === SyntaxKind.FunctionKeyword) {
+    if (kind === ts.SyntaxKind.FunctionKeyword) {
         return 'function';
     }
-    if (kind === SyntaxKind.SymbolKeyword) {
+    if (kind === ts.SyntaxKind.SymbolKeyword) {
         return 'symbol';
     }
-    if (kind === SyntaxKind.ObjectKeyword) {
+    if (kind === ts.SyntaxKind.ObjectKeyword) {
         return 'object';
     }
-    if (kind === SyntaxKind.NumberKeyword) {
+    if (kind === ts.SyntaxKind.NumberKeyword) {
         return 'number';
     }
-    if (kind === SyntaxKind.BigIntKeyword) {
+    if (kind === ts.SyntaxKind.BigIntKeyword) {
         return 'bigint';
     }
 }
@@ -115,7 +114,7 @@ function typeToString(typeChecker, type) {
     if (type.objectType) {
         return `${type.objectType.typeName.escapedText}[${type.indexType.literal.text}]`;
     }
-    if (type.elementType && type.kind === SyntaxKind.ArrayType) {
+    if (type.elementType && type.kind === ts.SyntaxKind.ArrayType) {
         return `${typeToString(typeChecker, type.elementType)}[]`;
     }
     return 'unknown';
@@ -132,17 +131,17 @@ function classSchema(typeChecker, node) {
     Object.assign(result, getDocs(node));
     if (node.members) {
         node.members.forEach((member) => {
-            if (member.kind === SyntaxKind.Constructor) {
+            if (member.kind === ts.SyntaxKind.Constructor) {
                 return;
             }
-            if (member.kind === SyntaxKind.MethodDeclaration) {
+            if (member.kind === ts.SyntaxKind.MethodDeclaration) {
                 return result.methods[member.name.escapedText] = Object.assign(getDocs(member), {
                     name: member.name.escapedText,
                     parameters: member.parameters.map((param) => parametersSchema(typeChecker, param)),
                     returns: typeString(typeChecker, member)
                 });
             }
-            if (member.kind === SyntaxKind.PropertyDeclaration) {
+            if (member.kind === ts.SyntaxKind.PropertyDeclaration) {
                 const propertyName = member.name.escapedText;
                 if (!result.properties[propertyName]) {
                     result.properties[propertyName] = {};
@@ -153,7 +152,7 @@ function classSchema(typeChecker, node) {
                 Object.assign(result.properties[propertyName], getDocs(member));
                 return;
             }
-            if (member.kind === SyntaxKind.SetAccessor) {
+            if (member.kind === ts.SyntaxKind.SetAccessor) {
                 const propertyName = member.name.escapedText;
                 if (!result.properties[propertyName]) {
                     result.properties[propertyName] = {};
@@ -166,7 +165,7 @@ function classSchema(typeChecker, node) {
                 Object.assign(result.properties[propertyName], getDocs(member));
                 return;
             }
-            if (member.kind === SyntaxKind.GetAccessor) {
+            if (member.kind === ts.SyntaxKind.GetAccessor) {
                 const propertyName = member.name.escapedText;
                 if (!result.properties[propertyName]) {
                     result.properties[propertyName] = { readonly: true };
@@ -228,34 +227,34 @@ export default function JSONTransformer(program, config) {
             const imports = [];
             const definitions = {};
             const errors = [];
-            forEachChild(sourceFile, node => {
+            ts.forEachChild(sourceFile, node => {
                 const n = node;
                 const name = n.name ? n.name.getText() : undefined;
-                if (!isNodeExported(node) || SyntaxKind.EndOfFileToken === node.kind || isExportDeclaration(node)) {
+                if (!isNodeExported(node) || ts.SyntaxKind.EndOfFileToken === node.kind || ts.isExportDeclaration(node)) {
                     return;
                 }
-                if (isImportDeclaration(node)) {
+                if (ts.isImportDeclaration(node)) {
                     imports.push(importSchema(node));
                 }
-                else if (isTypeAliasDeclaration(node)) {
+                else if (ts.isTypeAliasDeclaration(node)) {
                     const type = typeAliasSchems(typeChecker, node);
                     Object.assign(definitions, { [type.name]: type });
                 }
-                else if (isClassDeclaration(node)) {
+                else if (ts.isClassDeclaration(node)) {
                     const result = classSchema(typeChecker, node);
                     Object.assign(definitions, { [result.name]: result });
                 }
                 else if (name) {
                     errors.push(name);
                 }
-                else if (isExpressionStatement(node)) {
+                else if (ts.isExpressionStatement(node)) {
                     const args = n.arguments ? n.arguments : node.expression && n.expression.arguments ? n.expression.arguments : [{ text: '' }];
                     errors.push(args.text);
                 }
-                else if (SyntaxKind.FirstStatement === node.kind) {
+                else if (ts.SyntaxKind.FirstStatement === node.kind) {
                     errors.push(n.declarationList.declarations[0].name.escapedText);
                 }
-                else if (SyntaxKind.ExportAssignment === node.kind) {
+                else if (ts.SyntaxKind.ExportAssignment === node.kind) {
                     errors.push(n.symbol.escapedName);
                 }
                 else {
@@ -263,7 +262,7 @@ export default function JSONTransformer(program, config) {
                 }
             });
             const resultString = JSON.stringify({ imports, definitions, errors });
-            sys.writeFile(outPath, resultString);
+            ts.sys.writeFile(outPath, resultString);
             return sourceFile;
         };
     };

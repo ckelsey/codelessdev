@@ -1,0 +1,4670 @@
+[
+    {
+        "value": [
+            {
+                "args": {
+                    "name": "swapper"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14247,
+                "tid": 0,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "ThreadPoolServiceThread"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14244,
+                "tid": 28163,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "Chrome_IOThread"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14244,
+                "tid": 29955,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "Chrome_ChildIOThread"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14255,
+                "tid": 13315,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "Chrome_ChildIOThread"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14247,
+                "tid": 26883,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "ThreadPoolForegroundWorker"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "ThreadPoolForegroundWorker"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "CrRendererMain"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14255,
+                "tid": 775,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "CrBrowserMain"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14244,
+                "tid": 775,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "ThreadPoolForegroundWorker"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "Chrome_DevToolsHandlerThread"
+                },
+                "cat": "__metadata",
+                "name": "thread_name",
+                "ph": "M",
+                "pid": 14244,
+                "tid": 46339,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "HeadlessBrowser"
+                },
+                "cat": "__metadata",
+                "name": "process_name",
+                "ph": "M",
+                "pid": 14244,
+                "tid": 0,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "GPU Process"
+                },
+                "cat": "__metadata",
+                "name": "process_name",
+                "ph": "M",
+                "pid": 14247,
+                "tid": 0,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "name": "Renderer"
+                },
+                "cat": "__metadata",
+                "name": "process_name",
+                "ph": "M",
+                "pid": 14255,
+                "tid": 0,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "uptime": "0"
+                },
+                "cat": "__metadata",
+                "name": "process_uptime_seconds",
+                "ph": "M",
+                "pid": 14244,
+                "tid": 0,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "uptime": "0"
+                },
+                "cat": "__metadata",
+                "name": "process_uptime_seconds",
+                "ph": "M",
+                "pid": 14247,
+                "tid": 0,
+                "ts": 0
+            },
+            {
+                "args": {
+                    "uptime": "0"
+                },
+                "cat": "__metadata",
+                "name": "process_uptime_seconds",
+                "ph": "M",
+                "pid": 14255,
+                "tid": 0,
+                "ts": 0
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 912,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 129,
+                "tid": 28163,
+                "ts": 23534468280,
+                "tts": 411
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 195,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 82,
+                "tid": 29955,
+                "ts": 23534468421,
+                "tts": 38401
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 165,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 109,
+                "tid": 13315,
+                "ts": 23534468471,
+                "tts": 13585
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 768,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 126,
+                "tid": 26883,
+                "ts": 23534468486,
+                "tts": 3581
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "mojo_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "base",
+                "dur": 19,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 19,
+                "tid": 29955,
+                "ts": 23534468583,
+                "tts": 38451
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 5,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 6,
+                "tid": 29955,
+                "ts": 23534468593,
+                "tts": 38460
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "mojo_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "base",
+                "dur": 17,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 17,
+                "tid": 13315,
+                "ts": 23534468606,
+                "tts": 13664
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 4,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 29955,
+                "ts": 23534468609,
+                "tts": 38477
+            },
+            {
+                "args": {
+                    "task_queue_name": "ui_thread_tq"
+                },
+                "cat": "toplevel.flow",
+                "dur": 4,
+                "name": "SequenceManager PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 28419,
+                "ts": 23534468612,
+                "tts": 5381
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 5,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 5,
+                "tid": 13315,
+                "ts": 23534468614,
+                "tts": 13672
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 4,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 4,
+                "tid": 13315,
+                "ts": 23534468630,
+                "tts": 13687
+            },
+            {
+                "args": {
+                    "task_queue_name": "default_tq"
+                },
+                "cat": "toplevel.flow",
+                "dur": 11,
+                "name": "SequenceManager PostTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 9,
+                "tid": 11779,
+                "ts": 23534468633,
+                "tts": 6928
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 5,
+                "name": "mojo::Message Send",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 5,
+                "tid": 28419,
+                "ts": 23534468639,
+                "tts": 5408
+            },
+            {
+                "args": {
+                    "task_type": 0
+                },
+                "cat": "sequence_manager",
+                "dur": 252,
+                "name": "RunNormalPriorityTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 212,
+                "tid": 775,
+                "ts": 23534468656,
+                "tts": 193732
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 3,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 28419,
+                "ts": 23534468667,
+                "tts": 5436
+            },
+            {
+                "args": {
+                    "task_queue_name": "default_tq"
+                },
+                "cat": "toplevel.flow",
+                "dur": 4,
+                "name": "SequenceManager PostTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 4,
+                "tid": 11779,
+                "ts": 23534468673,
+                "tts": 6951
+            },
+            {
+                "args": {
+                    "task_queue_name": "default_tq"
+                },
+                "cat": "toplevel.flow",
+                "dur": 2,
+                "name": "SequenceManager PostTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 2,
+                "tid": 11779,
+                "ts": 23534468681,
+                "tts": 6959
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 48,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 49,
+                "tid": 28419,
+                "ts": 23534468685,
+                "tts": 5453
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 5,
+                "name": "mojo::Message Send",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 5,
+                "tid": 11779,
+                "ts": 23534468691,
+                "tts": 6969
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 38,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 38,
+                "tid": 28419,
+                "ts": 23534468692,
+                "tts": 5461
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 14,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 14,
+                "tid": 28419,
+                "ts": 23534468713,
+                "tts": 5482
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 50,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 50,
+                "tid": 11779,
+                "ts": 23534468731,
+                "tts": 7009
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 27,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 27,
+                "tid": 28419,
+                "ts": 23534468737,
+                "tts": 5506
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 42,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 42,
+                "tid": 11779,
+                "ts": 23534468737,
+                "tts": 7015
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 22,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 22,
+                "tid": 28419,
+                "ts": 23534468740,
+                "tts": 5509
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 12,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 12,
+                "tid": 28419,
+                "ts": 23534468747,
+                "tts": 5516
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 15,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 16,
+                "tid": 11779,
+                "ts": 23534468761,
+                "tts": 7039
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 26,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 27,
+                "tid": 28419,
+                "ts": 23534468770,
+                "tts": 5538
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 22,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 20,
+                "tid": 28419,
+                "ts": 23534468772,
+                "tts": 5542
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 12,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 12,
+                "tid": 28419,
+                "ts": 23534468779,
+                "tts": 5548
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 28,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 29,
+                "tid": 11779,
+                "ts": 23534468787,
+                "tts": 7065
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 23,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 22,
+                "tid": 11779,
+                "ts": 23534468790,
+                "tts": 7069
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 12,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 13,
+                "tid": 11779,
+                "ts": 23534468798,
+                "tts": 7075
+            },
+            {
+                "args": {
+                    "src_file": "../../mojo/public/cpp/system/simple_watcher.cc",
+                    "src_func": "Notify"
+                },
+                "cat": "toplevel",
+                "dur": 45,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 45,
+                "tid": 28419,
+                "ts": 23534468801,
+                "tts": 5570
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 55,
+                "name": "ui_thread_tq",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 55,
+                "tid": 775,
+                "ts": 23534468802,
+                "tts": 193837
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 39,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 39,
+                "tid": 28419,
+                "ts": 23534468805,
+                "tts": 5574
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 48,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 47,
+                "tid": 775,
+                "ts": 23534468806,
+                "tts": 193842
+            },
+            {
+                "args": {
+                    "src_file": "../../base/trace_event/trace_log.cc",
+                    "src_func": "SetEnabled"
+                },
+                "cat": "toplevel",
+                "dur": 40,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 40,
+                "tid": 775,
+                "ts": 23534468810,
+                "tts": 193846
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 29,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 30,
+                "tid": 28419,
+                "ts": 23534468812,
+                "tts": 5580
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 23,
+                "name": "SimpleWatcher::OnHandleReady",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 23,
+                "tid": 28419,
+                "ts": 23534468815,
+                "tts": 5584
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 29,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 28,
+                "tid": 775,
+                "ts": 23534468818,
+                "tts": 193854
+            },
+            {
+                "args": {
+                    "task_type": 39
+                },
+                "cat": "sequence_manager",
+                "dur": 238,
+                "name": "RunNormalPriorityTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 237,
+                "tid": 775,
+                "ts": 23534468819,
+                "tts": 174985
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 14,
+                "name": "mojo::Message Receive",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 14,
+                "tid": 28419,
+                "ts": 23534468820,
+                "tts": 5589
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 26,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 25,
+                "tid": 11779,
+                "ts": 23534468820,
+                "tts": 7099
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 20,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 20,
+                "tid": 11779,
+                "ts": 23534468823,
+                "tts": 7101
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 8,
+                "name": "Connector::DispatchMessage",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 8,
+                "tid": 28419,
+                "ts": 23534468824,
+                "tts": 5593
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 40,
+                "name": "default_tq",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 40,
+                "tid": 775,
+                "ts": 23534468825,
+                "tts": 174990
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 35,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 34,
+                "tid": 775,
+                "ts": 23534468828,
+                "tts": 174993
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 11,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 10,
+                "tid": 11779,
+                "ts": 23534468829,
+                "tts": 7108
+            },
+            {
+                "args": {
+                    "src_file": "../../base/trace_event/trace_log.cc",
+                    "src_func": "SetEnabled"
+                },
+                "cat": "toplevel",
+                "dur": 29,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 29,
+                "tid": 775,
+                "ts": 23534468831,
+                "tts": 174996
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 17,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 19,
+                "tid": 775,
+                "ts": 23534468839,
+                "tts": 175003
+            },
+            {
+                "args": {
+                    "src_file": "../../mojo/public/cpp/system/simple_watcher.cc",
+                    "src_func": "Notify"
+                },
+                "cat": "toplevel",
+                "dur": 44,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 43,
+                "tid": 11779,
+                "ts": 23534468850,
+                "tts": 7129
+            },
+            {
+                "args": {
+                    "src_file": "../../mojo/public/cpp/bindings/lib/connector.cc",
+                    "src_func": "PostDispatchNextMessageFromPipe"
+                },
+                "cat": "toplevel",
+                "dur": 109,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 109,
+                "tid": 28419,
+                "ts": 23534468852,
+                "tts": 5621
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 37,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 37,
+                "tid": 11779,
+                "ts": 23534468855,
+                "tts": 7133
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 102,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 102,
+                "tid": 28419,
+                "ts": 23534468856,
+                "tts": 5625
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 29,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 28,
+                "tid": 11779,
+                "ts": 23534468861,
+                "tts": 7139
+            },
+            {
+                "args": {
+                    "delay_ms": 108.203
+                },
+                "cat": "sequence_manager",
+                "dur": 3,
+                "name": "RealTimeDomain::DelayTillNextTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 775,
+                "ts": 23534468862,
+                "tts": 193897
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 92,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 92,
+                "tid": 28419,
+                "ts": 23534468864,
+                "tts": 5633
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 22,
+                "name": "SimpleWatcher::OnHandleReady",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 22,
+                "tid": 11779,
+                "ts": 23534468865,
+                "tts": 7143
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 84,
+                "name": "mojo::Message Receive",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 84,
+                "tid": 28419,
+                "ts": 23534468868,
+                "tts": 5637
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 78,
+                "name": "Connector::DispatchMessage",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 78,
+                "tid": 28419,
+                "ts": 23534468871,
+                "tts": 5640
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 13,
+                "name": "mojo::Message Receive",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 12,
+                "tid": 11779,
+                "ts": 23534468871,
+                "tts": 7149
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 7,
+                "name": "Connector::DispatchMessage",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 8,
+                "tid": 11779,
+                "ts": 23534468874,
+                "tts": 7152
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "ipc_hash": 1377057286
+                    }
+                },
+                "cat": "base",
+                "dur": 68,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 69,
+                "tid": 28419,
+                "ts": 23534468876,
+                "tts": 5644
+            },
+            {
+                "args": {
+                    "task_type": 39
+                },
+                "cat": "sequence_manager",
+                "dur": 31,
+                "name": "RunNormalPriorityTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 30,
+                "tid": 775,
+                "ts": 23534468888,
+                "tts": 175053
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 25,
+                "name": "default_tq",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 24,
+                "tid": 775,
+                "ts": 23534468891,
+                "tts": 175056
+            },
+            {
+                "args": {
+                    "src_file": "../../base/trace_event/trace_log.cc",
+                    "src_func": "SetEnabled"
+                },
+                "cat": "toplevel",
+                "dur": 19,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 20,
+                "tid": 775,
+                "ts": 23534468894,
+                "tts": 175059
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 3,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 3,
+                "tid": 28419,
+                "ts": 23534468896,
+                "tts": 5665
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 14,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 14,
+                "tid": 775,
+                "ts": 23534468897,
+                "tts": 175062
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 145,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 36,
+                "tid": 11779,
+                "ts": 23534468899,
+                "tts": 7177
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 5,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 5,
+                "tid": 775,
+                "ts": 23534468900,
+                "tts": 193936
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 23,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 23,
+                "tid": 11779,
+                "ts": 23534468902,
+                "tts": 7180
+            },
+            {
+                "args": {
+                    "task_queue_name": "ui_thread_tq"
+                },
+                "cat": "toplevel.flow",
+                "dur": 3,
+                "name": "SequenceManager PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 2,
+                "tid": 28419,
+                "ts": 23534468903,
+                "tts": 5673
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 13,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 15,
+                "tid": 11779,
+                "ts": 23534468909,
+                "tts": 7186
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 5,
+                "name": "mojo::Message Send",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 5,
+                "tid": 28419,
+                "ts": 23534468928,
+                "tts": 5697
+            },
+            {
+                "args": {
+                    "task_type": 39
+                },
+                "cat": "sequence_manager",
+                "dur": 74,
+                "name": "RunNormalPriorityTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 75,
+                "tid": 775,
+                "ts": 23534468932,
+                "tts": 175096
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 69,
+                "name": "default_tq",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 69,
+                "tid": 775,
+                "ts": 23534468935,
+                "tts": 175100
+            },
+            {
+                "args": {
+                    "src_file": "../../base/trace_event/trace_log.cc",
+                    "src_func": "SetEnabled"
+                },
+                "cat": "toplevel",
+                "dur": 64,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 63,
+                "tid": 775,
+                "ts": 23534468937,
+                "tts": 175103
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 58,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 58,
+                "tid": 775,
+                "ts": 23534468940,
+                "tts": 175105
+            },
+            {
+                "args": {
+                    "task_type": 0
+                },
+                "cat": "sequence_manager",
+                "dur": 322,
+                "name": "RunNormalPriorityTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 320,
+                "tid": 775,
+                "ts": 23534468946,
+                "tts": 193969
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 275,
+                "name": "ui_thread_tq",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 274,
+                "tid": 775,
+                "ts": 23534468951,
+                "tts": 193973
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 270,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 269,
+                "tid": 775,
+                "ts": 23534468954,
+                "tts": 193976
+            },
+            {
+                "args": {
+                    "src_file": "../../services/tracing/public/cpp/perfetto/trace_event_data_source.cc",
+                    "src_func": "StartTracingImpl"
+                },
+                "cat": "toplevel",
+                "dur": 264,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 263,
+                "tid": 775,
+                "ts": 23534468957,
+                "tts": 193979
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 255,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 255,
+                "tid": 775,
+                "ts": 23534468963,
+                "tts": 193984
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 29,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 29,
+                "tid": 28419,
+                "ts": 23534468967,
+                "tts": 5736
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 23,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 24,
+                "tid": 28419,
+                "ts": 23534468970,
+                "tts": 5738
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 13,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 12,
+                "tid": 28419,
+                "ts": 23534468978,
+                "tts": 5747
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 27,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 27,
+                "tid": 28419,
+                "ts": 23534469001,
+                "tts": 5770
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 22,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 23,
+                "tid": 28419,
+                "ts": 23534469004,
+                "tts": 5772
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 12,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 12,
+                "tid": 28419,
+                "ts": 23534469011,
+                "tts": 5779
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 4,
+                "name": "mojo::Message Send",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 5,
+                "tid": 38483,
+                "ts": 23534469016,
+                "tts": 1302
+            },
+            {
+                "args": {
+                    "delay_ms": 87.135
+                },
+                "cat": "sequence_manager",
+                "dur": 7,
+                "name": "RealTimeDomain::DelayTillNextTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 6,
+                "tid": 775,
+                "ts": 23534469016,
+                "tts": 175181
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 5,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 5,
+                "tid": 775,
+                "ts": 23534469049,
+                "tts": 175214
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 53,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 52,
+                "tid": 38483,
+                "ts": 23534469055,
+                "tts": 1342
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 39,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 39,
+                "tid": 38483,
+                "ts": 23534469067,
+                "tts": 1354
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 14,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 14,
+                "tid": 38483,
+                "ts": 23534469089,
+                "tts": 1376
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 29,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 29,
+                "tid": 38483,
+                "ts": 23534469113,
+                "tts": 1400
+            },
+            {
+                "args": {
+                    "file_name": "../../net/base/network_change_notifier_mac.mm",
+                    "function_name": "GetCurrentConnectionType",
+                    "source_location_iid": 3
+                },
+                "cat": "base",
+                "dur": 8,
+                "name": "ScopedAllowBaseSyncPrimitivesOutsideBlockingScope",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 9,
+                "tid": 775,
+                "ts": 23534469116,
+                "tts": 194137
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 24,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 24,
+                "tid": 38483,
+                "ts": 23534469116,
+                "tts": 1403
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 13,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 13,
+                "tid": 38483,
+                "ts": 23534469124,
+                "tts": 1411
+            },
+            {
+                "args": {
+                    "src_file": "../../base/task/sequence_manager/task_queue_impl.cc",
+                    "src_func": "PushOntoDelayedIncomingQueue"
+                },
+                "cat": "toplevel",
+                "dur": 16,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 16,
+                "tid": 28163,
+                "ts": 23534469173,
+                "tts": 522
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 6,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 5,
+                "tid": 28163,
+                "ts": 23534469181,
+                "tts": 530
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 115,
+                "name": "WorkerThread active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 103,
+                "tid": 28419,
+                "ts": 23534469188,
+                "tts": 5811
+            },
+            {
+                "args": {
+                    "delay_ms": 999.041
+                },
+                "cat": "sequence_manager",
+                "dur": 5,
+                "name": "RealTimeDomain::DelayTillNextTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 5,
+                "tid": 28163,
+                "ts": 23534469198,
+                "tts": 547
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 57,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 46,
+                "tid": 28419,
+                "ts": 23534469200,
+                "tts": 5822
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 50,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 40,
+                "tid": 28419,
+                "ts": 23534469204,
+                "tts": 5826
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 3,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 3,
+                "tid": 28163,
+                "ts": 23534469206,
+                "tts": 555
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 5,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 5,
+                "tid": 775,
+                "ts": 23534469207,
+                "tts": 194229
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 112,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 53,
+                "tid": 29955,
+                "ts": 23534469212,
+                "tts": 38491
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "mojo_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "base",
+                "dur": 14,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 13,
+                "tid": 26883,
+                "ts": 23534469227,
+                "tts": 3680
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 116,
+                "name": "WorkerThread active",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 108,
+                "tid": 38483,
+                "ts": 23534469229,
+                "tts": 1443
+            },
+            {
+                "args": {
+                    "delay_ms": 107.835
+                },
+                "cat": "sequence_manager",
+                "dur": 3,
+                "name": "RealTimeDomain::DelayTillNextTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 3,
+                "tid": 775,
+                "ts": 23534469230,
+                "tts": 194252
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 5,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 4,
+                "tid": 26883,
+                "ts": 23534469232,
+                "tts": 3686
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 17,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 17,
+                "tid": 28419,
+                "ts": 23534469234,
+                "tts": 5846
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 46,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 40,
+                "tid": 38483,
+                "ts": 23534469238,
+                "tts": 1450
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 40,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 34,
+                "tid": 38483,
+                "ts": 23534469241,
+                "tts": 1454
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 4,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 4,
+                "tid": 26883,
+                "ts": 23534469248,
+                "tts": 3700
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 4,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 775,
+                "ts": 23534469261,
+                "tts": 194283
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 35,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 34,
+                "tid": 28419,
+                "ts": 23534469263,
+                "tts": 5875
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 15,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 15,
+                "tid": 38483,
+                "ts": 23534469263,
+                "tts": 1470
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 28,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 28,
+                "tid": 28419,
+                "ts": 23534469267,
+                "tts": 5879
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 17,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 18,
+                "tid": 28419,
+                "ts": 23534469275,
+                "tts": 5886
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "mojo_interface_tag": "tracing.mojom.TracingSessionClient"
+                    }
+                },
+                "cat": "base",
+                "dur": 34,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 22,
+                "tid": 29955,
+                "ts": 23534469277,
+                "tts": 38509
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 4,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 29955,
+                "ts": 23534469283,
+                "tts": 38515
+            },
+            {
+                "args": {
+                    "src_file": "../../mojo/public/cpp/system/simple_watcher.cc",
+                    "src_func": "Notify"
+                },
+                "cat": "toplevel",
+                "dur": 49,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 49,
+                "tid": 38483,
+                "ts": 23534469290,
+                "tts": 1497
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 42,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 41,
+                "tid": 38483,
+                "ts": 23534469295,
+                "tts": 1502
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 30,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 30,
+                "tid": 38483,
+                "ts": 23534469305,
+                "tts": 1511
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 23,
+                "name": "SimpleWatcher::OnHandleReady",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 23,
+                "tid": 38483,
+                "ts": 23534469309,
+                "tts": 1515
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 146,
+                "name": "WorkerThread active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 140,
+                "tid": 28419,
+                "ts": 23534469314,
+                "tts": 5922
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 14,
+                "name": "mojo::Message Receive",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 13,
+                "tid": 38483,
+                "ts": 23534469314,
+                "tts": 1521
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 8,
+                "name": "Connector::DispatchMessage",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 7,
+                "tid": 38483,
+                "ts": 23534469317,
+                "tts": 1524
+            },
+            {
+                "args": {
+                    "src_file": "../../mojo/public/cpp/system/simple_watcher.cc",
+                    "src_func": "Notify"
+                },
+                "cat": "toplevel",
+                "dur": 67,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 60,
+                "tid": 28419,
+                "ts": 23534469318,
+                "tts": 5927
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 3,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 29955,
+                "ts": 23534469318,
+                "tts": 38537
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 59,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 53,
+                "tid": 28419,
+                "ts": 23534469322,
+                "tts": 5930
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 37,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 39,
+                "tid": 28419,
+                "ts": 23534469329,
+                "tts": 5937
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.TracingSessionClient"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 30,
+                "name": "SimpleWatcher::OnHandleReady",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 30,
+                "tid": 28419,
+                "ts": 23534469333,
+                "tts": 5941
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 22,
+                "name": "mojo::Message Receive",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 23,
+                "tid": 28419,
+                "ts": 23534469338,
+                "tts": 5946
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.TracingSessionClient"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 18,
+                "name": "Connector::DispatchMessage",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 18,
+                "tid": 28419,
+                "ts": 23534469340,
+                "tts": 5948
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "ipc_hash": 1158953003
+                    }
+                },
+                "cat": "base",
+                "dur": 10,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 10,
+                "tid": 28419,
+                "ts": 23534469344,
+                "tts": 5953
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 2,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 2,
+                "tid": 28419,
+                "ts": 23534469349,
+                "tts": 5958
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 26,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 24,
+                "tid": 29955,
+                "ts": 23534469364,
+                "tts": 38551
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "mojo_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "base",
+                "dur": 8,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 8,
+                "tid": 29955,
+                "ts": 23534469374,
+                "tts": 38560
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 3,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 3,
+                "tid": 29955,
+                "ts": 23534469377,
+                "tts": 38563
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 2,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 2,
+                "tid": 29955,
+                "ts": 23534469386,
+                "tts": 38572
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 33,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 34,
+                "tid": 28419,
+                "ts": 23534469391,
+                "tts": 5992
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 29,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 28,
+                "tid": 28419,
+                "ts": 23534469393,
+                "tts": 5996
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 19,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 20,
+                "tid": 28419,
+                "ts": 23534469401,
+                "tts": 6003
+            },
+            {
+                "args": {
+                    "src_file": "../../mojo/public/cpp/system/simple_watcher.cc",
+                    "src_func": "Notify"
+                },
+                "cat": "toplevel",
+                "dur": 29,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 29,
+                "tid": 28419,
+                "ts": 23534469427,
+                "tts": 6029
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 26,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 25,
+                "tid": 28419,
+                "ts": 23534469429,
+                "tts": 6031
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 20,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 20,
+                "tid": 28419,
+                "ts": 23534469433,
+                "tts": 6035
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 16,
+                "name": "SimpleWatcher::OnHandleReady",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 16,
+                "tid": 28419,
+                "ts": 23534469435,
+                "tts": 6037
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 9,
+                "name": "mojo::Message Receive",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 9,
+                "tid": 28419,
+                "ts": 23534469440,
+                "tts": 6042
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerHost"
+                    }
+                },
+                "cat": "toplevel",
+                "dur": 5,
+                "name": "Connector::DispatchMessage",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 5,
+                "tid": 28419,
+                "ts": 23534469442,
+                "tts": 6044
+            },
+            {
+                "args": {
+                    "task_type": 0
+                },
+                "cat": "sequence_manager",
+                "dur": 154,
+                "name": "RunNormalPriorityTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 145,
+                "tid": 775,
+                "ts": 23534469474,
+                "tts": 194306
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 94,
+                "name": "ui_user_blocking_tq",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 88,
+                "tid": 775,
+                "ts": 23534469477,
+                "tts": 194310
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 89,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 83,
+                "tid": 775,
+                "ts": 23534469479,
+                "tts": 194312
+            },
+            {
+                "args": {
+                    "src_file": "../../content/browser/devtools/protocol/tracing_handler.cc",
+                    "src_func": "operator()"
+                },
+                "cat": "toplevel",
+                "dur": 75,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 72,
+                "tid": 775,
+                "ts": 23534469490,
+                "tts": 194321
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 64,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 61,
+                "tid": 775,
+                "ts": 23534469499,
+                "tts": 194329
+            },
+            {
+                "args": {
+                    "task_queue_name": "default_tq"
+                },
+                "cat": "toplevel.flow",
+                "dur": 6,
+                "name": "SequenceManager PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 6,
+                "tid": 775,
+                "ts": 23534469548,
+                "tts": 194375
+            },
+            {
+                "args": {
+                    "delay_ms": 107.491
+                },
+                "cat": "sequence_manager",
+                "dur": 4,
+                "name": "RealTimeDomain::DelayTillNextTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 3,
+                "tid": 775,
+                "ts": 23534469574,
+                "tts": 194402
+            },
+            {
+                "args": {
+                    "task_type": 0
+                },
+                "cat": "sequence_manager",
+                "dur": 273,
+                "name": "RunNormalPriorityTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 201,
+                "tid": 46339,
+                "ts": 23534469574,
+                "tts": 16760
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 7,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 7,
+                "tid": 775,
+                "ts": 23534469618,
+                "tts": 194441
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 48,
+                "name": "WorkerThread active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 48,
+                "tid": 28419,
+                "ts": 23534469631,
+                "tts": 6069
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 36,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 36,
+                "tid": 28419,
+                "ts": 23534469637,
+                "tts": 6075
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 31,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 31,
+                "tid": 28419,
+                "ts": 23534469640,
+                "tts": 6078
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 18,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 18,
+                "tid": 28419,
+                "ts": 23534469650,
+                "tts": 6087
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 185,
+                "name": "default_tq",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 120,
+                "tid": 46339,
+                "ts": 23534469652,
+                "tts": 16831
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 177,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 112,
+                "tid": 46339,
+                "ts": 23534469656,
+                "tts": 16835
+            },
+            {
+                "args": {
+                    "src_file": "../../content/browser/devtools/devtools_http_handler.cc",
+                    "src_func": "DispatchProtocolMessage"
+                },
+                "cat": "toplevel",
+                "dur": 132,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 94,
+                "tid": 46339,
+                "ts": 23534469661,
+                "tts": 16839
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 107,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 71,
+                "tid": 46339,
+                "ts": 23534469668,
+                "tts": 16847
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 5,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 5,
+                "tid": 46339,
+                "ts": 23534469840,
+                "tts": 16954
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 78,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 76,
+                "tid": 46339,
+                "ts": 23534470332,
+                "tts": 16974
+            },
+            {
+                "args": {
+                    "task_queue_name": "ui_user_blocking_tq"
+                },
+                "cat": "toplevel.flow",
+                "dur": 7,
+                "name": "SequenceManager PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 7,
+                "tid": 46339,
+                "ts": 23534470366,
+                "tts": 17006
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 4,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 46339,
+                "ts": 23534470403,
+                "tts": 17043
+            },
+            {
+                "args": {
+                    "task_type": 0
+                },
+                "cat": "sequence_manager",
+                "dur": 121,
+                "name": "RunNormalPriorityTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 122,
+                "tid": 775,
+                "ts": 23534470415,
+                "tts": 194481
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 77,
+                "name": "ui_user_blocking_tq",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 77,
+                "tid": 775,
+                "ts": 23534470422,
+                "tts": 194489
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 73,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 73,
+                "tid": 775,
+                "ts": 23534470424,
+                "tts": 194491
+            },
+            {
+                "args": {
+                    "src_file": "../../content/browser/devtools/devtools_http_handler.cc",
+                    "src_func": "OnWebSocketMessage"
+                },
+                "cat": "toplevel",
+                "dur": 69,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 69,
+                "tid": 775,
+                "ts": 23534470426,
+                "tts": 194493
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 62,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 62,
+                "tid": 775,
+                "ts": 23534470431,
+                "tts": 194498
+            },
+            {
+                "args": {
+                    "call_id": 74,
+                    "method": "Tracing.end"
+                },
+                "cat": "devtools",
+                "dur": 40,
+                "name": "DevToolsSession::HandleCommand in Browser",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 40,
+                "tid": 775,
+                "ts": 23534470450,
+                "tts": 194517
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 2,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 2,
+                "tid": 775,
+                "ts": 23534470459,
+                "tts": 194526
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 2,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 3,
+                "tid": 775,
+                "ts": 23534470470,
+                "tts": 194536
+            },
+            {
+                "args": {
+                    "task_queue_name": "default_tq"
+                },
+                "cat": "toplevel.flow",
+                "dur": 3,
+                "name": "SequenceManager PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 2,
+                "tid": 775,
+                "ts": 23534470482,
+                "tts": 194549
+            },
+            {
+                "args": {
+                    "delay_ms": 106.563
+                },
+                "cat": "sequence_manager",
+                "dur": 2,
+                "name": "RealTimeDomain::DelayTillNextTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 2,
+                "tid": 775,
+                "ts": 23534470502,
+                "tts": 194569
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 110,
+                "name": "WorkerThread active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 105,
+                "tid": 28419,
+                "ts": 23534470515,
+                "tts": 6129
+            },
+            {
+                "args": {
+                    "task_type": 0
+                },
+                "cat": "sequence_manager",
+                "dur": 79,
+                "name": "RunNormalPriorityTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 72,
+                "tid": 46339,
+                "ts": 23534470521,
+                "tts": 17066
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 65,
+                "name": "default_tq",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 58,
+                "tid": 46339,
+                "ts": 23534470527,
+                "tts": 17072
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 28,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 28,
+                "tid": 28419,
+                "ts": 23534470528,
+                "tts": 6141
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 60,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 53,
+                "tid": 46339,
+                "ts": 23534470529,
+                "tts": 17074
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 2,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 2,
+                "tid": 775,
+                "ts": 23534470532,
+                "tts": 194599
+            },
+            {
+                "args": {
+                    "src_file": "../../content/browser/devtools/devtools_http_handler.cc",
+                    "src_func": "DispatchProtocolMessage"
+                },
+                "cat": "toplevel",
+                "dur": 54,
+                "name": "ThreadControllerImpl::RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 48,
+                "tid": 46339,
+                "ts": 23534470532,
+                "tts": 17077
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 21,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 21,
+                "tid": 28419,
+                "ts": 23534470533,
+                "tts": 6146
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 45,
+                "name": "SequenceManager RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 40,
+                "tid": 46339,
+                "ts": 23534470536,
+                "tts": 17080
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 5,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 28419,
+                "ts": 23534470547,
+                "tts": 6161
+            },
+            {
+                "args": {
+                    "src_file": "../../base/tracing/perfetto_task_runner.cc",
+                    "src_func": "PostDelayedTask"
+                },
+                "cat": "toplevel",
+                "dur": 58,
+                "name": "ThreadPool_RunTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 53,
+                "tid": 28419,
+                "ts": 23534470560,
+                "tts": 6174
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "dur": 55,
+                "name": "ThreadPool_TaskInfo",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 51,
+                "tid": 28419,
+                "ts": 23534470562,
+                "tts": 6175
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "dur": 46,
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 42,
+                "tid": 28419,
+                "ts": 23534470567,
+                "tts": 6180
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 3,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 4,
+                "tid": 46339,
+                "ts": 23534470595,
+                "tts": 17132
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 58,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 54,
+                "tid": 29955,
+                "ts": 23534470670,
+                "tts": 38585
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "mojo_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "base",
+                "dur": 27,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 24,
+                "tid": 29955,
+                "ts": 23534470683,
+                "tts": 38596
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 56,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 55,
+                "tid": 26883,
+                "ts": 23534470688,
+                "tts": 3720
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "dur": 96,
+                "name": "ThreadController active",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 72,
+                "tid": 13315,
+                "ts": 23534470696,
+                "tts": 13707
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 6,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 6,
+                "tid": 29955,
+                "ts": 23534470697,
+                "tts": 38608
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "mojo_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "base",
+                "dur": 20,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 19,
+                "tid": 26883,
+                "ts": 23534470710,
+                "tts": 3742
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "name": "WorkerThread active",
+                "ph": "B",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470713,
+                "tts": 6242
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 4,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 4,
+                "tid": 26883,
+                "ts": 23534470717,
+                "tts": 3748
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 4,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14244,
+                "tdur": 3,
+                "tid": 29955,
+                "ts": 23534470722,
+                "tts": 38633
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "mojo_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "base",
+                "dur": 46,
+                "name": "ScopedSetIpcHash",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 30,
+                "tid": 13315,
+                "ts": 23534470727,
+                "tts": 13730
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "name": "WorkerThread active",
+                "ph": "B",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470736,
+                "tts": 1562
+            },
+            {
+                "args": {
+                    "src_file": "../../mojo/public/cpp/system/simple_watcher.cc",
+                    "src_func": "Notify"
+                },
+                "cat": "toplevel",
+                "name": "ThreadPool_RunTask",
+                "ph": "B",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470737,
+                "tts": 6252
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 3,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14247,
+                "tdur": 4,
+                "tid": 26883,
+                "ts": 23534470739,
+                "tts": 3769
+            },
+            {
+                "args": {
+                    "src_file": "../../mojo/public/cpp/system/simple_watcher.cc",
+                    "src_func": "Notify"
+                },
+                "cat": "toplevel",
+                "name": "ThreadPool_RunTask",
+                "ph": "B",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470746,
+                "tts": 1570
+            },
+            {
+                "args": {
+                    "task_queue_name": ""
+                },
+                "cat": "toplevel.flow",
+                "dur": 4,
+                "name": "ThreadPool_PostTask",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 4,
+                "tid": 13315,
+                "ts": 23534470747,
+                "tts": 13740
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "name": "ThreadPool_TaskInfo",
+                "ph": "B",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470751,
+                "tts": 1574
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "name": "ThreadPool_TaskInfo",
+                "ph": "B",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470755,
+                "tts": 6262
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "B",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470762,
+                "tts": 1586
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "toplevel",
+                "name": "SimpleWatcher::OnHandleReady",
+                "ph": "B",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470766,
+                "tts": 1590
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "B",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470767,
+                "tts": 6275
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "toplevel",
+                "name": "SimpleWatcher::OnHandleReady",
+                "ph": "B",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470771,
+                "tts": 6277
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "name": "mojo::Message Receive",
+                "ph": "B",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470773,
+                "tts": 1597
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "toplevel",
+                "name": "Connector::DispatchMessage",
+                "ph": "B",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470776,
+                "tts": 1600
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "name": "mojo::Message Receive",
+                "ph": "B",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470777,
+                "tts": 6284
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "toplevel",
+                "name": "Connector::DispatchMessage",
+                "ph": "B",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470780,
+                "tts": 6287
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "ipc_hash": 3526922743
+                    }
+                },
+                "cat": "base",
+                "name": "ScopedSetIpcHash",
+                "ph": "B",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470783,
+                "tts": 1607
+            },
+            {
+                "args": {},
+                "cat": "sequence_manager",
+                "dur": 4,
+                "name": "SequenceManager::DoIdleWork",
+                "ph": "X",
+                "pid": 14255,
+                "tdur": 4,
+                "tid": 13315,
+                "ts": 23534470785,
+                "tts": 13772
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "ipc_hash": 3526922743
+                    }
+                },
+                "cat": "base",
+                "name": "ScopedSetIpcHash",
+                "ph": "B",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470786,
+                "tts": 6293
+            },
+            {
+                "args": {},
+                "cat": "base",
+                "name": "WorkerThread active",
+                "ph": "B",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534470798,
+                "tts": 7229
+            },
+            {
+                "args": {
+                    "src_file": "../../mojo/public/cpp/system/simple_watcher.cc",
+                    "src_func": "Notify"
+                },
+                "cat": "toplevel",
+                "name": "ThreadPool_RunTask",
+                "ph": "B",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534470807,
+                "tts": 7236
+            },
+            {
+                "args": {
+                    "task_info": {
+                        "execution_mode": "sequenced",
+                        "sequence_token": 0,
+                        "task_priority": "USER_BLOCKING"
+                    }
+                },
+                "cat": "thread_pool",
+                "name": "ThreadPool_TaskInfo",
+                "ph": "B",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534470811,
+                "tts": 7241
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "name": "ThreadPool_RunTask_SkipOnShutdown",
+                "ph": "B",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534470825,
+                "tts": 7255
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "toplevel",
+                "name": "SimpleWatcher::OnHandleReady",
+                "ph": "B",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534470829,
+                "tts": 7258
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "name": "mojo::Message Receive",
+                "ph": "B",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534470836,
+                "tts": 7265
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "watcher_notify_interface_tag": "tracing.mojom.ProducerClient"
+                    }
+                },
+                "cat": "toplevel",
+                "name": "Connector::DispatchMessage",
+                "ph": "B",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534470839,
+                "tts": 7268
+            },
+            {
+                "args": {
+                    "chrome_mojo_event_info": {
+                        "ipc_hash": 3526922743
+                    }
+                },
+                "cat": "base",
+                "name": "ScopedSetIpcHash",
+                "ph": "B",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534470845,
+                "tts": 7274
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 0,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 29955,
+                "ts": 23534468593
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 0,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534468812
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 1,
+                "name": "SequenceManager PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534468612
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 1,
+                "name": "SequenceManager PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 775,
+                "ts": 23534468818
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 2,
+                "name": "SequenceManager PostTask",
+                "ph": "s",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534468633
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 2,
+                "name": "SequenceManager PostTask",
+                "ph": "f",
+                "pid": 14255,
+                "tid": 775,
+                "ts": 23534468839
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 3,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14255,
+                "tid": 13315,
+                "ts": 23534468614
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 3,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534468861
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 4,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534468667
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 4,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534468864
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 5,
+                "name": "SequenceManager PostTask",
+                "ph": "s",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534468673
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 5,
+                "name": "SequenceManager PostTask",
+                "ph": "f",
+                "pid": 14255,
+                "tid": 775,
+                "ts": 23534468897
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 6,
+                "name": "SequenceManager PostTask",
+                "ph": "s",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534468681
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 6,
+                "name": "SequenceManager PostTask",
+                "ph": "f",
+                "pid": 14255,
+                "tid": 775,
+                "ts": 23534468940
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 7,
+                "name": "SequenceManager PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534468903
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 7,
+                "name": "SequenceManager PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 775,
+                "ts": 23534468963
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 8,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534468896
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 8,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534469011
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 9,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 775,
+                "ts": 23534469207
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 9,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534469275
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 10,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14247,
+                "tid": 26883,
+                "ts": 23534469232
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 10,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534469305
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 11,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 29955,
+                "ts": 23534469283
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 11,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534469329
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 12,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534469349
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 12,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534469401
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 13,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 29955,
+                "ts": 23534469377
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 13,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534469433
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 14,
+                "name": "SequenceManager PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 775,
+                "ts": 23534469548
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 14,
+                "name": "SequenceManager PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 46339,
+                "ts": 23534469668
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 15,
+                "name": "SequenceManager PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 46339,
+                "ts": 23534470366
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 15,
+                "name": "SequenceManager PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 775,
+                "ts": 23534470431
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 16,
+                "name": "SequenceManager PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 775,
+                "ts": 23534470482
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 16,
+                "name": "SequenceManager PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 46339,
+                "ts": 23534470536
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 17,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 775,
+                "ts": 23534470459
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 17,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470547
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 18,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 775,
+                "ts": 23534470470
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 18,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470567
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 19,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14247,
+                "tid": 26883,
+                "ts": 23534470717
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 19,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470762
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 20,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14244,
+                "tid": 29955,
+                "ts": 23534470697
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 20,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470767
+            },
+            {
+                "args": {},
+                "cat": "toplevel.flow",
+                "id": 21,
+                "name": "ThreadPool_PostTask",
+                "ph": "s",
+                "pid": 14255,
+                "tid": 13315,
+                "ts": 23534470747
+            },
+            {
+                "args": {},
+                "bp": "e",
+                "cat": "toplevel.flow",
+                "id": 21,
+                "name": "ThreadPool_PostTask",
+                "ph": "f",
+                "pid": 14255,
+                "tid": 11779,
+                "ts": 23534470825
+            },
+            {
+                "args": {},
+                "cat": "blink",
+                "id": "0x307",
+                "name": "FrameBlameContext",
+                "ph": "(",
+                "pid": 14255,
+                "scope": "PlatformThread",
+                "tid": 775,
+                "ts": 23534468755,
+                "tts": 174920
+            },
+            {
+                "args": {
+                    "snapshot": {
+                        "renderFrame": {
+                            "id_ref": "0x1",
+                            "pid_ref": 14255,
+                            "scope": "RenderFrame"
+                        },
+                        "url": "https://localhost:3000/"
+                    }
+                },
+                "cat": "navigation",
+                "id": "0x1",
+                "name": "FrameTreeNode",
+                "ph": "O",
+                "pid": 14244,
+                "scope": "FrameTreeNode",
+                "tid": 775,
+                "ts": 23534468838,
+                "tts": 193874
+            },
+            {
+                "args": {
+                    "snapshot": {}
+                },
+                "cat": "blink",
+                "id": "0x307",
+                "name": "TopLevel",
+                "ph": "O",
+                "pid": 14255,
+                "scope": "PlatformThread",
+                "tid": 775,
+                "ts": 23534468845,
+                "tts": 175010
+            },
+            {
+                "args": {},
+                "cat": "blink",
+                "id": "0x307",
+                "name": "FrameBlameContext",
+                "ph": ")",
+                "pid": 14255,
+                "scope": "PlatformThread",
+                "tid": 775,
+                "ts": 23534468879,
+                "tts": 175043
+            },
+            {
+                "args": {},
+                "cat": "blink",
+                "id": "0x307",
+                "name": "FrameBlameContext",
+                "ph": "(",
+                "pid": 14255,
+                "scope": "PlatformThread",
+                "tid": 775,
+                "ts": 23534468884,
+                "tts": 175049
+            },
+            {
+                "args": {
+                    "snapshot": {
+                        "parent": {
+                            "id_ref": "0x307",
+                            "scope": "PlatformThread"
+                        }
+                    }
+                },
+                "cat": "blink",
+                "id": "0x1",
+                "name": "RenderFrame",
+                "ph": "O",
+                "pid": 14255,
+                "scope": "RenderFrame",
+                "tid": 775,
+                "ts": 23534468905,
+                "tts": 175070
+            },
+            {
+                "args": {},
+                "cat": "blink",
+                "id": "0x307",
+                "name": "FrameBlameContext",
+                "ph": ")",
+                "pid": 14255,
+                "scope": "PlatformThread",
+                "tid": 775,
+                "ts": 23534468924,
+                "tts": 175089
+            },
+            {
+                "args": {},
+                "cat": "blink",
+                "id": "0x307",
+                "name": "FrameBlameContext",
+                "ph": "(",
+                "pid": 14255,
+                "scope": "PlatformThread",
+                "tid": 775,
+                "ts": 23534468929,
+                "tts": 175094
+            },
+            {
+                "args": {},
+                "cat": "blink",
+                "id": "0x307",
+                "name": "FrameBlameContext",
+                "ph": ")",
+                "pid": 14255,
+                "scope": "PlatformThread",
+                "tid": 775,
+                "ts": 23534469012,
+                "tts": 175177
+            },
+            {
+                "args": {
+                    "number": 4
+                },
+                "cat": "__metadata",
+                "name": "num_cpus",
+                "ph": "M",
+                "pid": 14247,
+                "tid": 0,
+                "ts": 23534470791
+            },
+            {
+                "args": {
+                    "number": 4
+                },
+                "cat": "__metadata",
+                "name": "num_cpus",
+                "ph": "M",
+                "pid": 14244,
+                "tid": 0,
+                "ts": 23534470793
+            },
+            {
+                "args": {
+                    "sort_index": -1
+                },
+                "cat": "__metadata",
+                "name": "process_sort_index",
+                "ph": "M",
+                "pid": 14247,
+                "tid": 38483,
+                "ts": 23534470793
+            },
+            {
+                "args": {
+                    "sort_index": -6
+                },
+                "cat": "__metadata",
+                "name": "process_sort_index",
+                "ph": "M",
+                "pid": 14244,
+                "tid": 28419,
+                "ts": 23534470795
+            },
+            {
+                "args": {
+                    "number": 4
+                },
+                "cat": "__metadata",
+                "name": "num_cpus",
+                "ph": "M",
+                "pid": 14255,
+                "tid": 0,
+                "ts": 23534470851
+            },
+            {
+                "args": {
+                    "sort_index": -5
+                },
+                "cat": "__metadata",
+                "name": "process_sort_index",
+                "ph": "M",
+                "pid": 14255,
+                "tid": 775,
+                "ts": 23534470853
+            },
+            {
+                "args": {
+                    "labels": "Codeless"
+                },
+                "cat": "__metadata",
+                "name": "process_labels",
+                "ph": "M",
+                "pid": 14255,
+                "tid": 775,
+                "ts": 23534470854
+            },
+            {
+                "args": {
+                    "sort_index": -1
+                },
+                "cat": "__metadata",
+                "name": "thread_sort_index",
+                "ph": "M",
+                "pid": 14255,
+                "tid": 775,
+                "ts": 23534470856
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7c48240"
+                },
+                "name": "PowerModeVoter.Animation",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468516
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb975d18040"
+                },
+                "name": "PowerModeVoter.Response",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468520
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb975d18040"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468573
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7c48240"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468574
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb975f0e4b0"
+                },
+                "name": "PowerModeVoter.Charging",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468577
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7e7bc80"
+                },
+                "name": "PowerModeVoter.Audible",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468580
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7e7bc80"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468583
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb975f0e4b0"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468583
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7ea1ff0"
+                },
+                "name": "PowerModeVoter.Input",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468586
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb975f1a1d0"
+                },
+                "name": "PowerModeVoter.Loading",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468586
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7ea1ff0"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468589
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb975f1a1d0"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468589
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7ea2000"
+                },
+                "name": "PowerModeVoter.Loading",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468591
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb975f4c470"
+                },
+                "name": "PowerModeVoter.Animation",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468591
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7ea2000"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468594
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb975f4c470"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468594
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7f26b20"
+                },
+                "name": "PowerModeVoter.Charging",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468597
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb977023860"
+                },
+                "name": "PowerModeVoter.Audible",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468597
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb977023860"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468600
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fa4a7f26b20"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468602
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x11a267b38"
+                },
+                "name": "PowerModeArbiter",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468602
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x1164b3b38"
+                },
+                "name": "PowerModeArbiter",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468605
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x11a267b38"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "power",
+                "tid": 775,
+                "ts": 23534468605
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x1164b3b38"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14244,
+                "scope": "power",
+                "tid": 28419,
+                "ts": 23534468607
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb3f3c059d0"
+                },
+                "name": "PowerModeVoter.Charging",
+                "ph": "b",
+                "pid": 14247,
+                "scope": "power",
+                "tid": 38483,
+                "ts": 23534468919
+            },
+            {
+                "args": {
+                    "state": "early_loading"
+                },
+                "cat": "renderer.scheduler",
+                "id2": {
+                    "local": "0x7fb977811c28"
+                },
+                "name": "Scheduler.UseCase",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "renderer.scheduler",
+                "tid": 775,
+                "ts": 23534468947
+            },
+            {
+                "args": {
+                    "state": "normal"
+                },
+                "cat": "toplevel",
+                "id2": {
+                    "local": "0x7fb9778122b0"
+                },
+                "name": "RendererProcessType",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "toplevel",
+                "tid": 775,
+                "ts": 23534468952
+            },
+            {
+                "args": {
+                    "state": "no"
+                },
+                "cat": "renderer.scheduler",
+                "id2": {
+                    "local": "0x7fb977811dd8"
+                },
+                "name": "Scheduler.BlockingInputExpectedSoon",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "renderer.scheduler",
+                "tid": 775,
+                "ts": 23534468957
+            },
+            {
+                "args": {
+                    "state": "normal"
+                },
+                "cat": "renderer.scheduler",
+                "id2": {
+                    "local": "0x7fb977812430"
+                },
+                "name": "Scheduler.CompositorPriority",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "renderer.scheduler",
+                "tid": 775,
+                "ts": 23534468963
+            },
+            {
+                "args": {
+                    "state": "no"
+                },
+                "cat": "renderer.scheduler",
+                "id2": {
+                    "local": "0x7fb977811da0"
+                },
+                "name": "Scheduler.KeepRendererActive",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "renderer.scheduler",
+                "tid": 775,
+                "ts": 23534468966
+            },
+            {
+                "args": {
+                    "state": "renderer_foregrounded"
+                },
+                "cat": "toplevel",
+                "id2": {
+                    "local": "0x7fb977811d68"
+                },
+                "name": "RendererPriority",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "toplevel",
+                "tid": 775,
+                "ts": 23534468970
+            },
+            {
+                "args": {
+                    "state": "visible"
+                },
+                "cat": "toplevel",
+                "id2": {
+                    "local": "0x7fb977811d10"
+                },
+                "name": "RendererVisibility",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "toplevel",
+                "tid": 775,
+                "ts": 23534468973
+            },
+            {
+                "args": {
+                    "state": "silent"
+                },
+                "cat": "toplevel",
+                "id2": {
+                    "local": "0x7fb977811f28"
+                },
+                "name": "RendererAudioState",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "toplevel",
+                "tid": 775,
+                "ts": 23534468976
+            },
+            {
+                "args": {
+                    "chrome_renderer_scheduler_state": {
+                        "rail_mode": "RAIL_MODE_LOAD"
+                    }
+                },
+                "cat": "toplevel",
+                "id2": {
+                    "local": "0x2a"
+                },
+                "name": "Scheduler.RAILMode",
+                "ph": "b",
+                "pid": 14255,
+                "tid": 775,
+                "ts": 23534468980
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb3f3c059d0"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14247,
+                "scope": "power",
+                "tid": 38483,
+                "ts": 23534468989
+            },
+            {
+                "args": {
+                    "state": "no"
+                },
+                "cat": "renderer.scheduler",
+                "id2": {
+                    "local": "0x7fb9778123a8"
+                },
+                "name": "Scheduler.PrioritizeCompositingAfterInput",
+                "ph": "b",
+                "pid": 14255,
+                "scope": "renderer.scheduler",
+                "tid": 775,
+                "ts": 23534468992
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb3f3c502d0"
+                },
+                "name": "PowerModeVoter.Animation",
+                "ph": "b",
+                "pid": 14247,
+                "scope": "power",
+                "tid": 38483,
+                "ts": 23534468994
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb3f3c502d0"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14247,
+                "scope": "power",
+                "tid": 38483,
+                "ts": 23534468997
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb3f3c52530"
+                },
+                "name": "PowerModeVoter.Animation",
+                "ph": "b",
+                "pid": 14247,
+                "scope": "power",
+                "tid": 38483,
+                "ts": 23534469000
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x7fb3f3c52530"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14247,
+                "scope": "power",
+                "tid": 38483,
+                "ts": 23534469003
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x1120ddb38"
+                },
+                "name": "PowerModeArbiter",
+                "ph": "b",
+                "pid": 14247,
+                "scope": "power",
+                "tid": 38483,
+                "ts": 23534469005
+            },
+            {
+                "args": {},
+                "cat": "power",
+                "id2": {
+                    "local": "0x1120ddb38"
+                },
+                "name": "Idle",
+                "ph": "b",
+                "pid": 14247,
+                "scope": "power",
+                "tid": 38483,
+                "ts": 23534469008
+            }
+        ]
+    }
+]

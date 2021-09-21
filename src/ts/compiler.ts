@@ -2,10 +2,7 @@ import { resolve } from "path"
 import ImportsTransformer from "./transforms/imports.js"
 import RequiresTransformer from "./transforms/requires.js"
 import JSONTransformer from "./transforms/json.js"
-import * as ts from 'typescript'
-import { CompilerOptions } from 'typescript'
-
-const { createProgram, flattenDiagnosticMessageText, forEachChild, getCombinedModifierFlags, getLineAndCharacterOfPosition, getPreEmitDiagnostics, ModifierFlags, SyntaxKind } = ts
+import ts from 'typescript'
 
 export interface CompilerResult {
     emitResult: any;
@@ -18,15 +15,15 @@ export interface CompilerResult {
 function getFileName(node: any) { return node?.parent?.originalFileName }
 
 function isNodeExported(node: any) {
-    return (getCombinedModifierFlags(node) & ModifierFlags.Export) !== 0 || (!!node.parent && node.parent.kind === SyntaxKind.SourceFile)
+    return (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Export) !== 0 || (!!node.parent && node.parent.kind === ts.SyntaxKind.SourceFile)
 }
 
 const root = resolve('')
 
-export default function Compiler(files: string[], options: CompilerOptions): Promise<CompilerResult> {
+export default function Compiler(files: string[], options: ts.CompilerOptions): Promise<CompilerResult> {
     return new Promise((resolve) => {
         const filesCompiled: string[] = []
-        const program = createProgram(files, options)
+        const program = ts.createProgram(files, options)
         const transformers = {
             "after": [
                 JSONTransformer(program, options),
@@ -49,22 +46,22 @@ export default function Compiler(files: string[], options: CompilerOptions): Pro
 
         for (const sourceFile of program.getSourceFiles()) {
             if (!sourceFile.isDeclarationFile) {
-                forEachChild(sourceFile, visit)
+                ts.forEachChild(sourceFile, visit)
             }
         }
 
         const messages: string[] = []
-        const diagnostics = getPreEmitDiagnostics(program).concat(emitResult.diagnostics)
+        const diagnostics = ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics)
 
         diagnostics.forEach((diagnostic) => {
             if (diagnostic.file) {
-                const { line, character } = getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start || 0)
-                const message = `${diagnostic.file.fileName} (${line + 1},${character + 1}): ${flattenDiagnosticMessageText(diagnostic.messageText, "\n")}`
+                const { line, character } = ts.getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start || 0)
+                const message = `${diagnostic.file.fileName} (${line + 1},${character + 1}): ${ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n")}`
                 if (messages.indexOf(message) === -1) {
                     messages.push(message)
                 }
             } else {
-                const message = flattenDiagnosticMessageText(diagnostic.messageText, "\n")
+                const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n")
                 if (messages.indexOf(message) === -1) {
                     messages.push(message)
                 }

@@ -1,10 +1,15 @@
 import { createSecureServer } from 'http2'
 import { readFileSync } from 'fs'
-import { basename, join, dirname, extname, resolve } from 'path'
+import { basename, join, dirname, extname } from 'path'
+import TestUi from './test-ui.js'
 
-console.log(resolve(''))
-
-export default function Server(staticDir: string, port: string | number) {
+export default function Server(
+    staticDir: string,
+    port: string | number,
+    testUiPath: string,
+    keyPath: string,
+    certPath: string
+) {
     const mimeTypes: { [key: string]: string } = {
         '.html': 'text/html',
         '.js': 'text/javascript',
@@ -25,8 +30,8 @@ export default function Server(staticDir: string, port: string | number) {
 
     function getKeys() {
         return {
-            key: readFileSync(join(resolve(''), 'src', 'server', 'server.key')),
-            cert: readFileSync(join(resolve(''), 'src', 'server', 'server.crt'))
+            key: readFileSync(keyPath),
+            cert: readFileSync(certPath)
         }
     }
 
@@ -35,6 +40,11 @@ export default function Server(staticDir: string, port: string | number) {
 
     server.on('stream', (stream, headers) => {
         const requestPath = headers[':path'] || ''
+
+        if (requestPath.slice(0, testUiPath.length + 1) === `/${testUiPath}`) {
+            return TestUi(requestPath.split(testUiPath).pop() as string, stream)
+        }
+
         const base = dirname(requestPath) || '/'
         const name = basename(requestPath) || 'index.html'
         const ext = extname(name)

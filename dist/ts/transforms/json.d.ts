@@ -1,3 +1,2 @@
-import * as ts from 'typescript';
-import { TransformationContext, SourceFile, Program, CompilerOptions } from 'typescript';
-export default function JSONTransformer(program: Program, config: CompilerOptions): (_context: TransformationContext) => (sourceFile: SourceFile) => ts.SourceFile;
+import ts from 'typescript';
+export default function JSONTransformer(program: ts.Program, config: ts.CompilerOptions): (_context: ts.TransformationContext) => (sourceFile: ts.SourceFile) => ts.SourceFile;

@@ -7,9 +7,13 @@ const Config = {
     port: 8888,
     sourceDirectory: 'src',
     compileOutDirectory: 'dist',
+    testsPattern: 'src/**/*.spec.js',
+    testResultsDirectory: 'test-results',
+    testUiPath: 'tests',
     siteDirectory: '',
     defaultEntry: 'src/**/*.ts',
-    testsPattern: 'src/**/*.spec.js'
+    serverKey: './server.key',
+    serverCert: './server.crt'
 };
 try {
     Object.assign(Config, JSON.parse(readFileSync(configPath).toString()));

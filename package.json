@@ -32,14 +32,13 @@
     "glob": "^7.1.7",
     "html-minifier": "^4.0.0",
     "node-notifier": "^10.0.0",
-    "node-sass": "^6.0.0",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.4"
-  },
-  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5",
     "chrome-launcher": "^0.14.0",
-    "chrome-remote-interface": "^0.30.1",
+    "chrome-remote-interface": "^0.31.0",
     "devtools-protocol": "^0.0.900033"
   },
+  "devDependencies": {},
   "types": "dist"
 }

@@ -2,30 +2,27 @@ import { readFileSync } from "fs"
 import { dirname, join } from "path"
 import { minify } from 'html-minifier'
 import { renderSync } from 'node-sass'
-import * as ts from 'typescript'
-import { TransformationContext, SourceFile, VariableStatement, Node, VariableDeclaration, Expression, Program } from 'typescript'
+import ts from 'typescript'
 
-const { visitEachChild, isVariableStatement, NodeFlags } = ts
-
-export default function RequiresTransformer(_program: Program) {
-    return function (context: TransformationContext) {
-        return function (sourceFile: SourceFile) {
+export default function RequiresTransformer(_program: ts.Program) {
+    return function (context: ts.TransformationContext) {
+        return function (sourceFile: ts.SourceFile) {
             const sourcePath = dirname(sourceFile.fileName)
             return visitNodeAndChildren(sourceFile)
 
-            function visitNodeAndChildren(node: Node): Node {
+            function visitNodeAndChildren(node: ts.Node): ts.Node {
                 if (node == null) { return node }
 
                 node = visitNode(node)
 
-                return visitEachChild(
+                return ts.visitEachChild(
                     node,
                     childNode => visitNodeAndChildren(childNode),
                     context
                 )
             }
 
-            function declarationReducer(result: boolean, declaration: VariableDeclaration) {
+            function declarationReducer(result: boolean, declaration: ts.VariableDeclaration) {
                 if (result !== true) {
                     const initializer = declaration.initializer as any
                     if (!initializer) { return false }
@@ -35,30 +32,34 @@ export default function RequiresTransformer(_program: Program) {
 
                     if (typeof expression.getText !== 'function') { return false }
 
-                    return expression.getText() === 'require'
+                    try {
+                        return expression.getText() === 'require'
+                    } catch (error) {
+                        return false
+                    }
                 }
                 return result
             }
 
-            function isRequiredNode(node: Node) {
-                if (!isVariableStatement(node as any)) {
+            function isRequiredNode(node: ts.Node) {
+                if (!ts.isVariableStatement(node as any)) {
                     return false
                 }
 
-                const n = node as VariableStatement
+                const n = node as ts.VariableStatement
                 return !!n.declarationList && !!n.declarationList.declarations && n.declarationList.declarations.reduce(declarationReducer, false) === true
             }
 
-            function visitNode(node: Node): Node {
+            function visitNode(node: ts.Node): ts.Node {
                 return isRequiredNode(node) ? visitRequiredNode(node as any) : node
             }
 
-            function getInitializer(node: VariableStatement) {
+            function getInitializer(node: ts.VariableStatement) {
                 if (!node.declarationList.declarations.length) { return }
                 return node.declarationList.declarations[0].initializer
             }
 
-            function getRequiredPath(initializer: Expression) {
+            function getRequiredPath(initializer: ts.Expression) {
                 const i = initializer as any
                 if (!i.arguments) { return }
                 if (!i.arguments.length) { return }
@@ -84,7 +85,7 @@ export default function RequiresTransformer(_program: Program) {
                 return ''
             }
 
-            function createLiteral(node: Node, requiredPath: string, ext: string) {
+            function createLiteral(node: ts.Node, requiredPath: string, ext: string) {
                 const name = (node as any).declarationList.declarations[0]?.name?.getText() || ''
                 const code = getCode(requiredPath, ext)
 
@@ -100,12 +101,12 @@ export default function RequiresTransformer(_program: Program) {
                                 context.factory.createStringLiteral(code)
                             ),
                         ],
-                        NodeFlags.Const,
+                        ts.NodeFlags.Const,
                     )
                 )
             }
 
-            function visitRequiredNode(node: VariableStatement) {
+            function visitRequiredNode(node: ts.VariableStatement) {
                 const initializer = getInitializer(node)
 
                 if (!initializer) { return node }

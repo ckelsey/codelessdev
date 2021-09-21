@@ -1,0 +1,334 @@
+<!-- 
+    TODO:
+    - proper collapse
+    - coverage percentage next to each file/coverage header
+    - coverage counts
+    - collapsible groups
+    - total group coverage
+    - actual percentages of coverage 
+-->
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+        <title>Test UI</title>
+        <style>
+            html {
+                min-height: 100%;
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                height: 100%;
+                font-size: 14px;
+                font-family: Arial, Helvetica, sans-serif;
+                line-height: 150%;
+                background-color: #262c31;
+                color: #dadee1;
+                padding: 1em 2em;
+            }
+
+            .test-header {
+                margin: 0;
+                text-shadow: 0 1px 5px rgba(0, 0, 0, 0.38);
+            }
+
+            .test-header.passed {
+                color: #1bb2ff;
+            }
+
+            .test-header.errored {
+                color: #f34242;
+            }
+
+            .error {
+                white-space: pre-wrap;
+                font-size: 80%;
+                line-height: 100%;
+            }
+
+            .test-result {
+                background: #313f4c;
+                padding: 1em 1.5em;
+                margin: 1em 0;
+                border-radius: 3px;
+                box-shadow: inset 0 0 0 1px rgba(33, 38, 41, 0.85), 0 5px 10px -7px rgba(21, 26, 30, 0.95), 0 14px 40px -14px rgba(21, 26, 30, 0.75);
+            }
+
+            .coverage-element-container {
+                position: relative;
+            }
+
+            .coverage-elements-container,
+            .coverage-code-inner {
+                position: absolute;
+                top: 0;
+                width: 0;
+                height: 0;
+                opacity: 0;
+                pointer-events: none;
+                overflow: hidden;
+            }
+
+            .coverage-elements-container {
+                padding: 0 0 0 2em;
+            }
+
+            .coverage-element-header,
+            .coverage-header {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+            }
+
+            .coverage-element-header {
+                padding: 0.5em 0 0;
+            }
+
+            .coverage-element-header::before,
+            .coverage-header::before {
+                content: "";
+                border: 5px solid transparent;
+                border-left-color: #fff;
+                height: 0;
+                display: block;
+                transform: rotate(0deg);
+                transform-origin: 2.5px 5px;
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .coverage-element-header.active::before,
+            .coverage-header.active::before {
+                transform: rotate(90deg);
+            }
+
+            .coverage-element-header.active+.coverage-elements-container,
+            .coverage-header.active+.coverage-code .coverage-code-inner {
+                position: relative;
+                pointer-events: all;
+                opacity: 1;
+                overflow: unset;
+                width: auto;
+                height: auto;
+            }
+
+            .coverage-element {
+                position: relative;
+            }
+
+            .coverage-header {
+                margin: 0.5em 0;
+                cursor: pointer;
+            }
+
+            .coverage-header-percentage {
+                padding-left: 1em;
+                opacity: 0.62;
+            }
+
+            .coverage-code {
+                font-size: 12px;
+                line-height: 1.5em;
+                position: relative;
+            }
+
+            pre.code-container {
+                overflow: auto;
+                background: #eee;
+                counter-reset: line;
+                position: relative;
+                font-family: monospace;
+                margin: 0;
+            }
+
+            pre.code-container span.line-text {
+                display: flex;
+                color: #71777b;
+            }
+
+            pre.code-container span.line-text:before {
+                counter-increment: line;
+                content: counter(line);
+                display: block;
+                padding: 0 .5em;
+                margin-right: .5em;
+                width: 2.5em;
+                min-width: 2.5em;
+                max-width: 2.5em;
+                text-align: center;
+                background: #d7dadb;
+            }
+
+            pre.code-container .code-color {
+                position: absolute;
+                background: rgba(0, 180, 190, 0.25);
+                color: rgba(0, 49, 110, 0.46);
+                padding: 0;
+                margin-left: 4em;
+                left: 0;
+                top: 0;
+            }
+
+            pre.code-container .code-color.initial-load-color {
+                background: rgba(113, 0, 255, 0.07);
+            }
+
+            pre.code-container .code-color.no-load-color {
+                background: rgba(255, 149, 0, 0.7);
+                color: rgba(113, 0, 0, 0.7);
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Test results</h1>
+
+        <script>
+            (async function () {
+                const testResults = await fetch('{{testUiPath}}/data').then(response => response.json())
+                let lineHeight, fontSize, computedStyle
+                console.log(testResults)
+
+                function addCoverageToTest(testElement, coverage) {
+                    let coverageElementsContainer
+
+                    if (Object.keys(coverage).length) {
+                        const coverageContainer = document.createElement('div')
+                        coverageContainer.classList.add('coverage-element-container')
+
+                        const coverageHeader = document.createElement('div')
+                        coverageHeader.classList.add('coverage-element-header')
+                        coverageHeader.textContent = 'Coverage'
+                        coverageHeader.addEventListener('click', () => coverageHeader.classList.toggle('active'))
+
+                        coverageElementsContainer = document.createElement('div')
+                        coverageElementsContainer.classList.add('coverage-elements-container')
+
+                        coverageContainer.appendChild(coverageHeader)
+                        coverageContainer.appendChild(coverageElementsContainer)
+                        testElement.appendChild(coverageContainer)
+                    }
+
+                    return function createCoverage(coverageKey) {
+                        const coverageElement = document.createElement('div')
+                        coverageElement.classList.add('coverage-element')
+                        coverageElementsContainer.appendChild(coverageElement)
+
+                        const header = document.createElement('p')
+                        header.textContent = coverageKey
+                        header.classList.add('coverage-header')
+                        header.addEventListener('click', () => header.classList.toggle('active'))
+                        coverageElement.appendChild(header)
+
+                        const headerPercent = document.createElement('span')
+                        headerPercent.textContent = `${Math.round(coverage[coverageKey].percentage)}%`
+                        headerPercent.classList.add('coverage-header-percentage')
+                        header.appendChild(headerPercent)
+
+                        const coverageCodeElement = document.createElement('div')
+                        coverageCodeElement.classList.add('coverage-code')
+                        coverageElement.appendChild(coverageCodeElement)
+
+                        if (!fontSize || !lineHeight) {
+                            computedStyle = window.getComputedStyle(coverageCodeElement)
+                        }
+
+                        if (!fontSize) {
+                            fontSize = parseFloat(computedStyle.getPropertyValue('font-size'))
+                        }
+
+                        if (!lineHeight) {
+                            lineHeight = parseFloat(computedStyle.getPropertyValue('line-height')) / fontSize
+                        }
+
+                        const coverageCodeInnerElement = document.createElement('div')
+                        coverageCodeInnerElement.classList.add('coverage-code-inner')
+                        coverageCodeElement.appendChild(coverageCodeInnerElement)
+
+                        const pre = document.createElement('pre')
+                        pre.className = 'code-container'
+                        coverageCodeInnerElement.appendChild(pre)
+
+                        coverage[coverageKey].nodes.forEach((node, index) => {
+                            node.ranges.forEach(range => {
+                                range.linesDetailed.forEach(line => {
+                                    const color = document.createElement('span')
+                                    color.className = 'code-color'
+
+                                    if (index === 0 && node.name === '') {
+                                        color.className = 'code-color initial-load-color'
+                                    } else if (range.count === 0) {
+                                        color.className = 'code-color no-load-color'
+                                    }
+
+                                    color.setAttribute('data-count', range.count)
+                                    color.style.top = (line.startLine * lineHeight) + 'em'
+                                    color.style.left = (line.startColumn * 0.6006024096385543) + 'em'
+                                    color.textContent = line.snippet
+                                    pre.appendChild(color)
+                                })
+                            })
+                        })
+
+                        coverage[coverageKey].lines.forEach(line => {
+                            const ln = document.createElement('span')
+                            ln.textContent = line
+                            ln.className = 'line-text'
+                            pre.appendChild(ln)
+                        })
+                    }
+                }
+
+                function addTestToGroup(groupEl) {
+                    return function createTest(test) {
+                        const testElement = document.createElement('div')
+                        testElement.setAttribute('data-name', test.name)
+                        testElement.classList.add('test-result')
+                        groupEl.appendChild(testElement)
+
+                        const testHeader = document.createElement('h4')
+                        testHeader.classList.add('test-header')
+                        testHeader.textContent = test.name
+                        testElement.appendChild(testHeader)
+
+                        if (test.pass) {
+                            testHeader.classList.add('passed')
+                        }
+
+                        else {
+                            testHeader.classList.add('errored')
+                            const errorElementContainer = document.createElement('div')
+                            testElement.appendChild(errorElementContainer)
+
+                            const errorElement = document.createElement('span')
+                            errorElement.classList.add('error')
+                            errorElement.textContent = test.error.stack
+                            errorElementContainer.appendChild(errorElement)
+                        }
+
+                        const createCoverage = addCoverageToTest(testElement, test.coverage)
+                        Object.keys(test.coverage).forEach(createCoverage)
+                    }
+                }
+
+                function createGroup(groupKey) {
+                    const groupEl = document.createElement('div')
+                    groupEl.setAttribute('data-group', groupKey)
+                    document.body.appendChild(groupEl)
+
+                    const groupHeader = document.createElement('h3')
+                    groupHeader.textContent = groupKey
+                    groupEl.appendChild(groupHeader)
+
+                    testResults[groupKey].forEach(addTestToGroup(groupEl))
+                }
+
+                Object.keys(testResults).forEach(createGroup)
+            })()
+        </script>
+    </body>
+
+</html>

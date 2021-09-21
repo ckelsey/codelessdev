@@ -1,7 +1,6 @@
 import { lstatSync } from "fs";
 import { dirname, join } from "path";
-import * as ts from 'typescript';
-const { visitEachChild, isImportDeclaration } = ts;
+import ts from 'typescript';
 export default function ImportsTransformer(_program) {
     return function (context) {
         return function (sourceFile) {
@@ -12,9 +11,9 @@ export default function ImportsTransformer(_program) {
                     return node;
                 }
                 node = visitNode(node);
-                return visitEachChild(node, childNode => visitNodeAndChildren(childNode), context);
+                return ts.visitEachChild(node, childNode => visitNodeAndChildren(childNode), context);
             }
-            function visitNode(node) { return isImportDeclaration(node) ? visitImportNode(node) : node; }
+            function visitNode(node) { return ts.isImportDeclaration(node) ? visitImportNode(node) : node; }
             function isValidPath(importPath, addOn) {
                 try {
                     lstatSync(join(sourcePath, `${importPath}${addOn}`));
