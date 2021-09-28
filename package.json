@@ -1,6 +1,6 @@
 {
   "name": "codelessdev",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Compiler and testing for development with codeless components",
   "scripts": {
     "start": "tsc --project tsconfig.json --watch"
