@@ -23,7 +23,9 @@ export default function TsConfig(source: string, output: string, defaultEntry: s
         noUnusedParameters: true,
         noImplicitAny: true,
         removeComments: true,
-        skipLibCheck: true
+        experimentalDecorators: true,
+        emitDecoratorMetadata: true,
+        lib: ["esnext", "dom"]
     }
 
     return {

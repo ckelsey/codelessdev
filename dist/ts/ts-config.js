@@ -21,7 +21,9 @@ export default function TsConfig(source, output, defaultEntry, testsGlob, pathTo
         noUnusedParameters: true,
         noImplicitAny: true,
         removeComments: true,
-        skipLibCheck: true
+        experimentalDecorators: true,
+        emitDecoratorMetadata: true,
+        lib: ["esnext", "dom"]
     };
     return {
         files: files.length ? files : glob.sync(defaultEntry || `${root}/**/*.ts`, testsGlob ? { ignore: testsGlob } : undefined),
