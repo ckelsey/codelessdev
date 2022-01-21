@@ -21,7 +21,7 @@ export default function Server(
         '.svg': 'image/svg+xml',
         '.wav': 'audio/wav',
         '.mp4': 'video/mp4',
-        '.woff': 'application/font-woff',
+        '.woff': 'text/css',
         '.ttf': 'application/font-ttf',
         '.eot': 'application/vnd.ms-fontobject',
         '.otf': 'application/font-otf',
@@ -59,7 +59,10 @@ export default function Server(
             return stream.end('')
         }
 
-        stream.respond({ 'content-type': `${contentType}; charset=utf-8`, ':status': 200 })
+        console.log(name)
+
+        stream.respond({ 'content-type': `${contentType}`, ':status': 200 })
+
         stream.end(fileData)
     })
 
